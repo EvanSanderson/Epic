@@ -2,5 +2,5 @@
 
 (function() {
 	angular
-	.module("home", []);
+	.module("home", ['uiGmapgoogle-maps']);
 }());
