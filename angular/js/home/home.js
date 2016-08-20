@@ -2,5 +2,8 @@
 
 (function() {
 	angular
-	.module("home", ['uiGmapgoogle-maps']);
+	.module("home", [
+		"uiGmapgoogle-maps",
+		"ngResource"
+	]);
 }());

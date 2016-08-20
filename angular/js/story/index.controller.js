@@ -4,10 +4,12 @@
 	angular
 	.module("story")
 	.controller("StoryIndexController", [
+		"StoryFactory",
+		"$scope",
 		StoryIndexControllerFunction
 	])
 
-	function StoryIndexControllerFunction() {
-		console.log("Hello from StoryIndexController");
+	function StoryIndexControllerFunction(StoryFactory, $scope) {
+		$scope.stories = StoryFactory.query();
 	}
 }())
