@@ -2,5 +2,7 @@
 
 (function() {
 	angular
-	.module("story", []);
+	.module("story", [
+		"ngResource"
+	]);
 }());
