@@ -11,31 +11,24 @@
 
     function HomeIndexControllerFunction(HomeFactory, $scope) {
       $scope.epics = HomeFactory.query();
+      // Google Map Styling
       var stylesArray =[
-      {
-        "featureType": "administrative.land_parcel",
+        // Natural landmass
+      { "featureType": "landscape.natural",
         "elementType": "geometry",
         "stylers": [
-        {
-          "hue": "#ff4400"
-        },
-        {
-          "saturation": -68
-        },
-        {
-          "lightness": -4
-        },
-        {
-          "gamma": 0.72
-        }
-        ]
-      },
-      {
-        "featureType": "road",
+          // Dark Orange
+        { "hue": "#6d5906" },
+        { "saturation": 1 },
+        { "lightness": -4 },
+        { "gamma": 0.22 }
+        ]},
+      // Removing Road Icons
+      { "featureType": "road",
         "elementType": "labels.icon"
       },
-      {
-        "featureType": "landscape.man_made",
+      // Man Made Land
+      { "featureType": "landscape.man_made",
         "elementType": "geometry",
         "stylers": [
         {
@@ -48,12 +41,13 @@
       },
       {
         "featureType": "water",
+        "elementType": "geometry.fill",
         "stylers": [
         {
-          "hue": "#7f6a16"
+          "hue": "#1d666d"
         },
         {
-          "gamma": 0.44
+          "gamma": 0.1
         },
         {
           "saturation": -33
@@ -76,7 +70,7 @@
         "elementType": "labels.text.fill",
         "stylers": [
         {
-          "hue": "#007fff"
+          "hue": "#40776e"
         },
         {
           "gamma": 0.77
@@ -103,7 +97,7 @@
           "saturation": 99
         },
         {
-          "hue": "#0091ff"
+          "hue": "#40776e"
         },
         {
           "lightness": -86
@@ -128,6 +122,18 @@
         }
         ]
       },
+      {"featureType": "road",
+       "elementType": "labels.icon", 
+        "stylers": [
+        {visibility: "off"}
+        ]
+      },
+      {"featureType": "road",
+        "stylers": [
+        {"hue": "#111111"},
+        {"gamma": .3}
+        ]
+      },
       {
         "featureType": "transit",
         "elementType": "labels.text.stroke",
@@ -136,7 +142,7 @@
           "saturation": -64
         },
         {
-          "hue": "#ff9100"
+          "hue": "#111111"
         },
         {
           "lightness": 16
@@ -150,7 +156,54 @@
         ]
       }
       ] 
-        $scope.map = { center: { latitude: 48, longitude: 14 }, zoom: 2};
+        $scope.map = { center: { 
+          latitude: 48,
+          longitude: 14 },
+          zoom: 2,
+          markers: [48.210033, 16.363449],
+          events: {
+            click:  function (map, eventName, originalEventArgs) {
+              var e = originalEventArgs[0];
+              var lat = e.latLng.lat(),lon = e.latLng.lng();
+              var marker = {
+                id: Date.now(),
+                coords: {
+                  latitude: lat,
+                  longitude: lon
+                }
+              };
+              $scope.map.markers.push(marker);
+              $scope.$apply();
+            }
+          }
+        }
       $scope.options = { styles: stylesArray }
+      $scope.marker = {
+        id: 0,
+        coords: {
+          latitude: 40.1451,
+          longitude: -99.6680
+        },
+        options: { draggable: false,
+          icon:'shadowPin.png',
+        },
+          events: {
+            dragend: function (marker, eventName, args) {
+              $log.log('marker dragend');
+              var lat = marker.getPosition().lat();
+              var lon = marker.getPosition().lng();
+              $log.log(lat);
+              $log.log(lon);
+            }
+          }
+      };
+      $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
+        if (_.isEqual(newVal, oldVal))
+          return;
+        $scope.coordsUpdates++;
+      });
+      $scope.icon = {
+        scaledSize: [5, 5]
+      }
     }
 }())
