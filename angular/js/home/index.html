@@ -1,6 +1,7 @@
 <h1>Epics</h1>
+<a data-ui-sref="epicNew"><h1> (+) </h1></a>
 <div data-ng-repeat="epic in epics">
-	<h1> {{epic.title}} | {{ epic.name }}</h1>
+	<h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1>
 	<p> {{epic.summary}} </p>
 	<img src="{{epic.img_url}}">
 </div>
