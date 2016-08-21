@@ -1,5 +1,7 @@
 <h1>Epics</h1>
 <div data-ng-repeat="epic in epics">
-	<p>{{ epic.name }}</p>
+	<h1> {{epic.title}} | {{ epic.name }}</h1>
+	<p> {{epic.summary}} </p>
+	<img src="{{epic.img_url}}">
 </div>
 <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
