@@ -1,16 +1,14 @@
 <h1>Epics</h1>
 <a data-ui-sref="epicNew"><h1> (+) </h1></a>
 <div data-ng-repeat="epic in epics">
-<<<<<<< HEAD
   <p>{{ epic.name }}</p>
 </div>
 <div id="map"></div>
-<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
-                    id="map" events="map.events">
-  <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords"
-    options="marker.options" idkey="m.id" style="height:1px"> </ui-gmap-marker>
-</ui-gmap-google-map>
-=======
+<!-- <ui-gmap-google-map options="options" center='map.center' zoom='map.zoom' -->
+<!--                     id="map" events="map.events"> -->
+<!--   <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" -->
+<!--     options="marker.options" idkey="m.id" style="height:1px"> </ui-gmap-marker> -->
+<!-- </ui-gmap-google-map> -->
 	<h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1>
 	<p> {{epic.summary}} </p>
 	<img src="{{epic.img_url}}">
@@ -29,5 +27,4 @@
       </form>
     </div>
 </div>
-<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
->>>>>>> a6d896e68f94af4e7ddb7bdba843cb956761017e
+<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->

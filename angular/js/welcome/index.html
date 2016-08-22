@@ -1,0 +1,14 @@
+<h1>Test</h1>
+<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
+                    id="map" events="options.events" >
+  <ui-gmap-markers models="markers" coords="'coords'" options="markersOptions.options"
+    events="map.markerHover" >
+    <ui-gmap-windows show="'model.show'" id="window">
+      <p ng-non-bindable>{{title}}</p>
+    </ui-gmap-windows>
+  </ui-gmap-markers>
+
+
+
+  <!-- options="marker.options" idkey="m.id" style="height:1px"> </ui-gmap-marker> -->
+  </ui-gmap-google-map>
