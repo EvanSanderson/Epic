@@ -1,4 +1,19 @@
 <h1>Epics</h1>
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <script id="searchbox.tpl.html" type="text/ng-template">
+    <form>
+      <input placeholder="Search..." type="text" ng-model="text" name="text" />
+    </form>
+  </script>
+  <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+  <ui-gmap-markers models="markerList" coords="'coords'" click="onClick">
+    <ui-gmap-windows show="show">
+      <div ng-non-bindable>{{title}}</div>
+    </ui-gmap-windows>
+  </ui-gmap-markers>
+</ui-gmap-google-map>
+
 <a data-ui-sref="epicNew"><h1> (+) </h1></a>
 <div data-ng-repeat="epic in epics">
 	<h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1>
@@ -19,10 +34,5 @@
       </form>
     </div>
 </div>
-
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-	<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-   </ui-gmap-marker>
-</ui-gmap-google-map>
 
 
