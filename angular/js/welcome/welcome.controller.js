@@ -98,7 +98,7 @@
       ] 
         // How the map appears on rendering 
         $scope.map = { center: { 
-          latitude: 28,
+          latitude: 18,
           longitude: -30},
           zoom: 3,
         }
