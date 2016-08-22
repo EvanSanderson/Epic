@@ -52,6 +52,6 @@ class EpicsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def epic_params
-      params.require(:epic).permit(:title, :name, :summary, :img_url)
+      params.require(:epic).permit(:title, :name, :summary, :img_url, :lat, :long)
     end
 end
