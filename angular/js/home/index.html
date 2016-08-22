@@ -8,14 +8,16 @@
 <!-- <button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Edit</button>
 <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Cancel Edit</button> -->
 <!--  Edit Form -->
-<div class="edit-form">
+<button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Update</button>
+<button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Cancel</button>
+<div class="edit-form" data-ng-show="epic.showEdit">
       <form>
         <input placeholder="Title" data-ng-model="epic.title">
         <input placeholder="Name" data-ng-model="epic.name">
         <input placeholder="Summary" data-ng-model="epic.summary">
-        <input placeholder="Img URL" data-ng-model="epic.img_url">
-        <button type="button" data-ng-click="HomeIndexCtrl.update(epic)">Update</button>
-        <button type="button" data-ng-click="HomeIndexCtrl.delete(epic)">Delete</button>
+				<input placeholder="Img URL" data-ng-model="epic.img_url">
+				<button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.update(epic)">Update</button>
+        <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.delete(epic)">Delete</button>
       </form>
     </div>
 </div>

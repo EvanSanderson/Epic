@@ -1,3 +1,38 @@
-<h1> Epic Show </h1>
 
-<p> {{HomeShowCtrl.epic.title}}</p>
+<h1> {{epic.title}}</h1>
+<hr>
+
+<h3> Add A Story </h3>
+<form>
+  <input placeholder = "Title" data-ng-model="HomeShowCtrl.story.title" />
+  <input placeholder = "Map Location" data-ng-model="HomeShowCtrl.story.map_loc" />
+  <input placeholder = "Media URL" data-ng-model="HomeShowCtrl.story.media_url" />
+  <input placeholder = "Summary" data-ng-model="HomeShowCtrl.story.summary" />
+  <button type="button" data-ng-click="HomeShowCtrl.create()">Create</button>
+</form>
+
+<hr>
+
+<div data-ng-repeat="story in stories">
+<!-- story information listed below -->
+  <h1> {{story.title}} </h1>
+  <a src={{story.map_loc}}> Map Location </a>
+  <p> {{story.summary}} </p>
+  <img src={{story.media_url}}>
+
+<!--  buttons to hide and unhide update function on stories -->
+  <button type="button" data-ng-if="!story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Update</button>
+  <button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Cancel</button>
+<!-- form for updating stories -->
+  <div class="edit-form" data-ng-show="story.showEdit">
+        <form>
+          <input placeholder="Title" data-ng-model="story.title">
+          <input placeholder="Map Location" data-ng-model="story.map_loc">
+          <input placeholder="Media URL" data-ng-model="story.media_url">
+  				<input placeholder="Summary" data-ng-model="story.summary">
+  				<button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.update(story)">Update</button>
+          <button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.delete(story)">Delete</button>
+        </form>
+      </div>
+  </div>
+</div>
