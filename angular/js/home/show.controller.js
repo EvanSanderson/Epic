@@ -8,10 +8,11 @@
       "HomeFactory",
       "StoryFactory",
       "$scope",
+      "$state",
       HomeShowControllerFunction
     ])
 
-    function HomeShowControllerFunction($stateParams, HomeFactory, StoryFactory, $scope){
+    function HomeShowControllerFunction($stateParams, HomeFactory, StoryFactory, $scope, $state){
       $scope.epic = HomeFactory.get({id: $stateParams.id})
       $scope.stories = []
       StoryFactory.query().$promise.then(function(results) {
@@ -22,6 +23,16 @@
               $scope.stories.push(result)
           })
       })
-      console.log($scope.stories)
+      this.story = new StoryFactory();
+      console.log(this)
+      this.create = function(){
+        this.story.epic_id = $stateParams.id
+        this.story.$save().then(function(){
+
+          $state.transitionTo('epicShow', {id: $stateParams.id}, {reload: true});
+        })
+      }
     }
+
+
 })()
