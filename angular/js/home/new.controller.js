@@ -13,7 +13,7 @@
     this.epic = new HomeFactory();
     this.create = function(){
       this.epic.$save()
-      $state.go("epicIndex")
+      $state.transitionTo('epicIndex', null, {reload: true});
     }
   }
 
