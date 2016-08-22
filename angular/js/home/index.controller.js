@@ -31,7 +31,11 @@
       this.toggleEdit = function(epic){
         epic.showEdit = !epic.showEdit;
       }
+
+
+          
       // Google Maps Data \\
+
       // Google Map Styling
       var stylesArray =[
         // Natural landmass
@@ -132,20 +136,22 @@
         },
       },
       // Marker Locations
-      $scope.markers = [{
-        id: 0,
-        title: "<a href='/#/stories'>New York</a>",
-        coords: {
-          latitude: 40.7128,
-          longitude: -74.0059
-        }},
-      {id: 1,
-        title: "San Diego",
-        coords: {
-          latitude: 32.7157,
-          longitude: -117.1611
-        }
-      }]
+      $scope.markers = []
+      $scope.marker = HomeFactory.query().$promise.then(function(val){
+        angular.forEach(val, function(val, key) {
+          console.log("val", val);
+          console.log(key);
+          $scope.markers.push({
+            id: val.id,
+            coords: {
+              latitude: val.lat,
+              longitude: val.long
+            }
+          })
+        })
+        console.log($scope.markers[0].coords);
+      })
+
       // Custom Icon 
       $scope.markersOptions = {
         options: {draggable: false,
