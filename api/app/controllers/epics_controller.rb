@@ -4,6 +4,12 @@ class EpicsController < ApplicationController
   # GET /epics
   def index
     @epics = Epic.all
+    @epics_with_stories = @epics.map do |epic|
+      {
+        epic: epic,
+        stories: epic.stories
+      }
+    end
 
     render json: @epics
   end
