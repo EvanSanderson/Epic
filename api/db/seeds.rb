@@ -9,8 +9,8 @@
  Epic.destroy_all
  Story.destroy_all
 
-scotland = Epic.create(title: "My Awesome Scotland Trip!", name: "Snorlax McDuff", summary: "It was awesome!", img_url: "http://www.studyacrossthepond.com/sites/default/files/styles/panopoly_image_featured/public/scotland.jpg?itok=bJet87Ob" )
-africa = Epic.create(title: "African Safari!", name: "Jorp Jorpson", summary: "I bless the rainnssss down in Affricaaaa", img_url: "http://www.fodors.com/wire/African-Safari-Elephants-Kilimanjaro.jpg" )
+scotland = Epic.create(title: "My Awesome Scotland Trip!", name: "Snorlax McDuff", summary: "It was awesome!", img_url: "http://www.studyacrossthepond.com/sites/default/files/styles/panopoly_image_featured/public/scotland.jpg?itok=bJet87Ob", lat: 56.490671, long: -4.202646)
+africa = Epic.create(title: "African Safari!", name: "Jorp Jorpson", summary: "I bless the rainnssss down in Affricaaaa", img_url: "http://www.fodors.com/wire/African-Safari-Elephants-Kilimanjaro.jpg", lat: -8.783195, long: 34.508523)
 
 Story.create(title: "Went to awesome castle", map_loc: "www.google.com", media_url: "http://www.goruralscotland.com/image_uploading/blueimp/server/php/files/507da6148057c.jpg", summary: "It was so awesome!", epic: scotland)
 Story.create(title: "Went to awesome pub", map_loc: "www.google.com", media_url: "http://www.scottishpub.ro/fundal/scottish-pub2.jpg", summary: "Drank much beer.", epic: scotland)
