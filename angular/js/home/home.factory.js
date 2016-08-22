@@ -9,7 +9,7 @@
       ]);
 
       function HomeFactoryFunction($resource) {
-         return $resource("http://localhost:3000/epics", {}, {
+         return $resource("http://localhost:3000/epics/:id", {}, {
          update: { method: "PUT" }
       });
    }
