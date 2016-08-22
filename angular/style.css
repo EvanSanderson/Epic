@@ -17,3 +17,8 @@ body {
 #marker {
   height: 5px,
 }
+
+.float_right {
+  float: right;
+}
+
