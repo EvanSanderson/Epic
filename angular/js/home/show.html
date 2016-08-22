@@ -1,6 +1,8 @@
 
-<h1> {{HomeShowCtrl.epic.title}}</h1>
+<h1> {{epic.title}}</h1>
+<hr>
 
+<h3> Add A Story </h3>
 <form>
   <input placeholder = "Title" data-ng-model="HomeShowCtrl.story.title" />
   <input placeholder = "Map Location" data-ng-model="HomeShowCtrl.story.map_loc" />
@@ -8,6 +10,8 @@
   <input placeholder = "Summary" data-ng-model="HomeShowCtrl.story.summary" />
   <button type="button" data-ng-click="HomeShowCtrl.create()">Create</button>
 </form>
+
+<hr>
 
 <div data-ng-repeat="story in stories">
 <!-- story information listed below -->

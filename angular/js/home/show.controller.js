@@ -14,6 +14,7 @@
 
     function HomeShowControllerFunction($stateParams, HomeFactory, StoryFactory, $scope, $state){
       $scope.epic = HomeFactory.get({id: $stateParams.id})
+      console.log($scope.epic)
       $scope.stories = []
 
       // listing the stories associated with the epic you are on
