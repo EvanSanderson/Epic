@@ -3,14 +3,22 @@
 (function() {
   angular
     .module("home")
+		.config(['uiGmapGoogleMapApiProvider', function (GoogleMapApi) {
+	    GoogleMapApi.configure({
+	      key: 'AIzaSyDNzHXnxO7i2lHvIufJw9jqta_MWpHyjTg',
+	      v: '3.25',
+	      libraries: 'places'
+	    });
+	  }])
     .controller("HomeIndexController", [
         "HomeFactory",
         '$scope',
+				'uiGmapGoogleMapApi',
         '$state',
         HomeIndexControllerFunction
     ])
 
-    function HomeIndexControllerFunction(HomeFactory, $scope, $state) {
+    function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
       // Epic data \\
       $scope.epics = HomeFactory.query();
       this.update = function(epic) {
@@ -98,7 +106,7 @@
         { "saturation": -23 }
         ]},
       {"featureType": "road",
-        "elementType": "labels.icon", 
+        "elementType": "labels.icon",
         "stylers": [
         {visibility: "off"}
         ]},
@@ -116,17 +124,17 @@
         { "gamma": 0.47 },
         { "weight": 2.7 }
         ]}
-      ] 
-        // How the map appears on rendering 
-        $scope.map = { center: { 
+      ]
+        // How the map appears on rendering
+        $scope.map = { center: {
           latitude: 18,
           longitude: -30},
           zoom: 3,
         }
       // Map Styles
-      $scope.options = { 
+      $scope.options = {
         styles: stylesArray,
-        options: { 
+        options: {
           draggable: true,
           minZoom: 3,
         },
@@ -146,7 +154,7 @@
           longitude: -117.1611
         }
       }]
-      // Custom Icon 
+      // Custom Icon
       $scope.markersOptions = {
         options: {draggable: false,
           icon:{
@@ -162,6 +170,37 @@
           $scope.$apply();
         }
       }
-    }
+
+
+    $scope.searchbox = {
+      template:'searchbox.tpl.html',
+      events: {
+        places_changed: function (searchBox) {
+          console.log(searchBox)
+          console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+          console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+.viewport.b.f)
+          console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+.viewport.f.b)
+          console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+          // $scope.markerList.push()
+        }
+      }
+    };
+
+
+
+		// update and delete
+		$scope.update = function(epic) {
+			$scope.epic = epic;
+			console.log($scope.epic)
+			$scope.epic.$update({id: epic.id})
+		}
+		$scope.delete = function(epic) {
+			$scope.epic = epic;
+			$scope.epic.$delete({id: epic.id})
+		}
+
+	}
 
 }())
