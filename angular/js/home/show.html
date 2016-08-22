@@ -1,3 +1,10 @@
 <h1> Epic Show </h1>
-
+<a data-ui-sref="storyNew"> (+) story </a>
 <p> {{HomeShowCtrl.epic.title}}</p>
+
+<div data-ng-repeat="story in stories">
+  <h1> {{story.title}} </h1>
+  <a src={{story.map_loc}}> Map Location </a>
+  <p> {{story.summary}} </p>
+  <img src={{story.media_url}}>
+</div>

@@ -45,5 +45,11 @@
 	      controller: "StoryIndexController",
 	      controllerAs: "StoryIndexCtrl"
    	})
+		.state("storyNew", {
+			url: "/stories/new",
+			templateUrl: "js/story/new.html",
+			controller: "StoryNewController",
+			controllerAs: "StoryNewCtrl"
+		})
   	}
 }())

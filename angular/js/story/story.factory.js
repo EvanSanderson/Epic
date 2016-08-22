@@ -9,7 +9,7 @@
       ]);
 
       function StoryFactoryFunction($resource) {
-         return $resource("http://localhost:3000/stories", {}, {
+         return $resource("http://localhost:3000/stories/:id", {}, {
          update: { method: "PUT" }
       });
    }
