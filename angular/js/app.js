@@ -27,6 +27,18 @@
 	      controller: "HomeIndexController",
 	      controllerAs: "HomeIndexCtrl"
    	})
+		.state("epicNew", {
+			url: "/epics/new",
+			templateUrl: "js/home/new.html",
+			controller: "HomeNewController",
+			controllerAs: "HomeNewCtrl"
+		})
+		.state("epicShow", {
+			url: "/epics/:id",
+			templateUrl: "js/home/show.html",
+			controller: "HomeShowController",
+			controllerAs: "HomeShowCtrl"
+		})
    	.state("storyIndex", {
 	      url: "/stories",
 	      templateUrl: "js/story/index.html",

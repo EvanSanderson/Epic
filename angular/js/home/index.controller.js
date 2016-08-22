@@ -9,6 +9,7 @@
         HomeIndexControllerFunction
     ])
 
+<<<<<<< HEAD
     function HomeIndexControllerFunction(HomeFactory, $scope) {
       $scope.epics = HomeFactory.query();
       // Google Map Styling
@@ -141,4 +142,21 @@
       $scope.icon = {
         scaledSize: [5, 5]
       }}
+=======
+	function HomeIndexControllerFunction(HomeFactory, $scope) {
+		$scope.epics = HomeFactory.query();
+		$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+		this.update = function(epic) {
+			this.epic = epic;
+			console.log(this.epic)
+			this.epic.$update({id: epic.id})
+		}
+
+		this.delete = function(epic) {
+			this.epic = epic;
+			this.epic.$delete({id: epic.id})
+		}
+	}
+>>>>>>> a6d896e68f94af4e7ddb7bdba843cb956761017e
 }())
