@@ -98,14 +98,17 @@
       ] 
         // How the map appears on rendering 
         $scope.map = { center: { 
-          latitude: 48,
-          longitude: 14 },
-          zoom: 2,
+          latitude: 28,
+          longitude: -30},
+          zoom: 3,
         }
       // Map Styles
       $scope.options = { 
         styles: stylesArray,
-        options: { draggable: true },
+        options: { 
+          draggable: true,
+          minZoom: 3,
+        },
       },
       // Marker Locations
       $scope.markers = [{
@@ -128,7 +131,7 @@
           icon:{
             url: 'shadowPin.png',
             scaledSize: {width: 40, height: 40}
-          }
+          },
         }
       }
       // Event for marker clicks
