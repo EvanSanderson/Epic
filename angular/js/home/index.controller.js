@@ -31,11 +31,8 @@
       this.toggleEdit = function(epic){
         epic.showEdit = !epic.showEdit;
       }
-
-
-          
+      
       // Google Maps Data \\
-
       // Google Map Styling
       var stylesArray =[
         // Natural landmass
@@ -123,7 +120,7 @@
       ] 
         // How the map appears on rendering 
         $scope.map = { center: { 
-          latitude: 18,
+          latitude: 30,
           longitude: -30},
           zoom: 3,
         }
@@ -139,17 +136,18 @@
       $scope.markers = []
       $scope.marker = HomeFactory.query().$promise.then(function(val){
         angular.forEach(val, function(val, key) {
-          console.log("val", val);
-          console.log(key);
+          console.log(val.img_url);
           $scope.markers.push({
             id: val.id,
+            title: val.title,
+            sum: val.summary,
             coords: {
               latitude: val.lat,
               longitude: val.long
             }
           })
         })
-        console.log($scope.markers[0].coords);
+        console.log($scope.markers[0].img);
       })
 
       // Custom Icon 

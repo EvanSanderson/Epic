@@ -1,30 +1,28 @@
-<div class="float_right">
-<h1>Epics</h1>
-<a data-ui-sref="epicNew"><h1> (+) </h1></a>
-</div>
+<h1>Epics<a data-ui-sref="epicNew">(+)</a></h1>
 <ui-gmap-google-map options="options" center='map.center' zoom='map.zoom' id="map" events="options.events" >
   <ui-gmap-markers models="markers" coords="'coords'" options="markersOptions.options" events="map.markerHover" >
     <ui-gmap-windows show="'model.show'" id="window">
-      <p ng-non-bindable>{{title}}</p>
+      <h3 ><a href="/#/epics/{{id}}" class="window_info"
+                                     data-ng-non-bindable>{{title}}</a></h3>
     </ui-gmap-windows>
   </ui-gmap-markers>
 </ui-gmap-google-map>
-<div data-ng-repeat="epic in epics">
-  <p>{{ epic.name }}</p>
-	<h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1>
-	<p> {{epic.summary}} </p>
-	<img src="{{epic.img_url}}">
-	 <!-- Buttons to toggle edit --> 
-<button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Update</button>
-<button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Cancel</button>
-<div class="edit-form" data-ng-show="epic.showEdit">
-      <form>
-        <input placeholder="Title" data-ng-model="epic.title">
-        <input placeholder="Name" data-ng-model="epic.name">
-        <input placeholder="Summary" data-ng-model="epic.summary">
-				<input placeholder="Img URL" data-ng-model="epic.img_url">
-				<button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.update(epic)">Update</button>
-        <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.delete(epic)">Delete</button>
-      </form>
-    </div>
+<!-- <div data-ng-repeat="epic in epics"> -->
+<!--   <p>{{ epic.name }}</p> -->
+<!--   <h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1> -->
+<!--   <p> {{epic.summary}} </p> -->
+<!--   <img src="{{epic.img_url}}"> -->
+<!--   <1!-- Buttons to toggle edit --1> --> 
+<!--   <button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Update</button> -->
+<!--   <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Cancel</button> -->
+<!--   <div class="edit-form" data-ng-show="epic.showEdit"> -->
+<!--     <form> -->
+<!--       <input placeholder="Title" data-ng-model="epic.title"> -->
+<!--       <input placeholder="Name" data-ng-model="epic.name"> -->
+<!--       <input placeholder="Summary" data-ng-model="epic.summary"> -->
+<!--       <input placeholder="Img URL" data-ng-model="epic.img_url"> -->
+<!--       <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.update(epic)">Update</button> -->
+<!--       <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeIndexCtrl.delete(epic)">Delete</button> -->
+<!--     </form> -->
+  <!-- </div> -->
 </div>

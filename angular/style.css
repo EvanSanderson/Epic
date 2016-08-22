@@ -19,6 +19,14 @@ body {
 }
 
 .float_right {
-  float: right;
 }
 
+.window_info{
+  color: violet;
+  text-align: center;
+}
+
+.window_info:hover{
+  text-decoration: none;
+  color: blue;
+}
