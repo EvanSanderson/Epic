@@ -11,7 +11,7 @@
 
 	function HomeIndexControllerFunction(HomeFactory, $scope) {
 		$scope.epics = HomeFactory.query();
-		$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+		$scope.map = { center: { latitude: 40.7128, longitude: -74.0059 }, zoom: 8 };
 		$scope.marker = {
       id: 0,
       coords: {
@@ -36,5 +36,15 @@
         }
       }
     };
+		$scope.update = function(epic) {
+			$scope.epic = epic;
+			console.log($scope.epic)
+			$scope.epic.$update({id: epic.id})
+		}
+
+		$scope.delete = function(epic) {
+			$scope.epic = epic;
+			$scope.epic.$delete({id: epic.id})
+		}
 	}
 }())
