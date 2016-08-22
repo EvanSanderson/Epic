@@ -3,13 +3,6 @@
 (function() {
   angular
     .module("home")
-		.config(['uiGmapGoogleMapApiProvider', function (GoogleMapApi) {
-	    GoogleMapApi.configure({
-	      key: 'AIzaSyDNzHXnxO7i2lHvIufJw9jqta_MWpHyjTg',
-	      v: '3.25',
-	      libraries: 'places'
-	    });
-	  }])
     .controller("HomeIndexController", [
         "HomeFactory",
         '$scope',

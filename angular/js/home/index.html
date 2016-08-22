@@ -15,9 +15,9 @@
   </ui-gmap-markers>
 </ui-gmap-google-map>
 <div data-ng-repeat="epic in epics">
-  <p>{{ epic.name }}</p>
 	<h1><a data-ui-sref="epicShow({id: epic.id})"> {{epic.title}} </a> | {{ epic.name }}</h1>
 	<p> {{epic.summary}} </p>
+	<p> Lat: {{epic.lat}} | Long: {{epic.long}} </p>
 	<img src="{{epic.img_url}}">
 	 <!-- Buttons to toggle edit -->
 <button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeIndexCtrl.toggleEdit(epic)">Update</button>
