@@ -6,6 +6,7 @@
     .controller("HomeIndexController", [
         "HomeFactory",
         '$scope',
+        '$state',
         HomeIndexControllerFunction
     ])
 
