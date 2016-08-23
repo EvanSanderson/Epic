@@ -1,6 +1,7 @@
 <h1 class="h1_title">Epics<a data-ui-sref="epicNew">(+)</a></h1>
 <ui-gmap-google-map options="options" center='map.center' zoom='map.zoom' id="map" events="options.events" >
-  <ui-gmap-markers models="markers" coords="'coords'" options="markersOptions.options" events="map.markerHover" >
+  <ui-gmap-markers models="markers" coords="'coords'"
+    options="markersOptions.options" events="map.markerHover" >
     <ui-gmap-windows show="'model.show'" id="window">
       <h3 ><a href="/#/epics/{{id}}" class="window_info"
                                      data-ng-non-bindable>{{title}}</a></h3>
