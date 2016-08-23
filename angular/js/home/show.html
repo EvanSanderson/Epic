@@ -32,8 +32,9 @@
 
 <hr>
 <div class="bg1"> </div>
+<div class="container">
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 story_show" data-ng-repeat="story in stories | orderBy: 'date'">
+    <div class="col-md-12 story_show" data-ng-repeat="story in stories | orderBy: 'date'">
     <!-- story information listed below -->
       <h1> {{story.title}} </h1>
       <a href={{story.map_loc}}> Map Location </a>
@@ -56,5 +57,7 @@
         </form>
       </div>
   </div>
+
+</div>
 </div>
 <div class="bg2"></div>

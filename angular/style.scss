@@ -2,6 +2,21 @@
 .navbar {
   margin-bottom: 0px;
 }
+
+.indexWords {
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 5%;
+  border-radius: 30px;
+  background: rgba(40,46,52, 0.8);
+
+    h1 {
+      font-size: 5em;
+      font-weight: bold;
+    }
+}
+
 img{
   width: 50%;;
 }
@@ -44,10 +59,12 @@ body {
 
 .story_show {
   text-align: center;
-  border: 5px solid black;
-  border-radius: 5px;
-  margin-bottom: 10%;
+  background: #282E34;
+  color:white;
+  margin-bottom: 5%;
   padding: 2%;
+  margin-top: 5%;
+  border-radius: 30px;
 }
 
 
@@ -90,6 +107,9 @@ button:hover {
   text-align: center;
   padding: 2%;
   transition: all linear 0.5s;
+  height: 50%;
+  color: rgb(40,46,52);
+  font-weight: bold;
 }
 
 .indexHeader {
@@ -119,6 +139,15 @@ button:hover {
 
 .bg2 {
   background-image: url("http://taylordavidson.com/assets/img/2009/P1100950_street_stalls_600_alt.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg3 {
+  background-image: url("http://www.walldevil.com/wallpapers/a52/wallpaper-computer-sea-blue-nature-oceans-ocean.jpg");
   min-height: 500px;
   background-attachment: fixed;
   background-position: center;
