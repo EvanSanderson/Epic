@@ -6,11 +6,12 @@
     .controller("HomeIndexController", [
         "HomeFactory",
         '$scope',
+				'uiGmapGoogleMapApi',
         '$state',
         HomeIndexControllerFunction
     ])
 
-    function HomeIndexControllerFunction(HomeFactory, $scope, $state) {
+    function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
       // Epic data \\
       $scope.epics = HomeFactory.query();
       this.update = function(epic) {
@@ -20,6 +21,7 @@
           this.epic.$update({id: epic.id})
       }
 
+      // delete function
       this.delete = function(epic) {
         this.toggleEdit(epic);
         this.epic = epic;
@@ -28,10 +30,24 @@
         })
       }
 
-      this.toggleEdit = function(epic){
-        epic.showEdit = !epic.showEdit;
+      // create function
+      this.epic = new HomeFactory();
+      this.create = function($scope){
+        this.toggleNew()
+        this.epic.lat = latitude[0]
+        this.epic.long = longitude[0]
+        console.log(latitude[0])
+        this.epic.$save().then(function(){
+          $state.transitionTo('epicIndex', null, {reload: true});
+        })
       }
-      
+
+      // toggles hide function on buttons
+      this.toggleNew = function(){
+        console.log("working")
+        this.showNew = !this.showNew;
+      }
+
       // Google Maps Data \\
       // Google Map Styling
       var stylesArray =[
@@ -99,7 +115,7 @@
         { "saturation": -23 }
         ]},
       {"featureType": "road",
-        "elementType": "labels.icon", 
+        "elementType": "labels.icon",
         "stylers": [
         {visibility: "off"}
         ]},
@@ -117,22 +133,24 @@
         { "gamma": 0.47 },
         { "weight": 2.7 }
         ]}
-      ] 
-        // How the map appears on rendering 
-        $scope.map = { center: { 
+
+      ]
+        // How the map appears on rendering
+        $scope.map = { center: {
           latitude: 30,
           longitude: -30},
           zoom: 3,
         }
       // Map Styles
-      $scope.options = { 
+      $scope.options = {
         styles: stylesArray,
-        options: { 
+        options: {
           draggable: true,
           minZoom: 3,
         },
       },
       // Marker Locations
+
       $scope.markers = []
       $scope.marker = HomeFactory.query().$promise.then(function(val){
         angular.forEach(val, function(val, key) {
@@ -150,7 +168,7 @@
         console.log($scope.markers[0].img);
       })
 
-      // Custom Icon 
+      // Custom Icon
       $scope.markersOptions = {
         options: {draggable: false,
           icon:{
@@ -166,6 +184,42 @@
           $scope.$apply();
         }
       }
-    }
+
+
+var latitude = [];
+var longitude = [];
+    $scope.searchbox = {
+      template:'searchbox.tpl.html',
+      events: {
+        places_changed: function (searchBox) {
+//           console.log(searchBox)
+//           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+//           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+// .viewport.b.f)
+//           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+// .viewport.f.b)
+//           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+  latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
+longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+
+          // $scope.markerList.push()
+        }
+      }
+    };
+
+
+
+		// update and delete
+		$scope.update = function(epic) {
+			$scope.epic = epic;
+			console.log($scope.epic)
+			$scope.epic.$update({id: epic.id})
+		}
+		$scope.delete = function(epic) {
+			$scope.epic = epic;
+			$scope.epic.$delete({id: epic.id})
+		}
+
+	}
 
 }())
