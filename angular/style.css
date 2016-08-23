@@ -1,16 +1,19 @@
+.navbar {
+  margin-bottom: 0px; }
+
 img {
   width: 50%; }
 
 body {
   height: 100vh;
-  font-family: 'Muli', sans-serif;
- }
+  font-family: 'Cardo', serif; }
 
 .angular-google-map-container {
-  height: 80vh; }
+  height: 75vh;
+  border: 5px solid #5D4A66; }
 
 #map {
-  height: 100vh; }
+  height: 50vh; }
 
 #main {
   height: 100vh; }
@@ -31,9 +34,7 @@ body {
   border: 5px solid black;
   border-radius: 5px;
   margin-bottom: 10%;
-  padding: 2%;
-  background-size: cover;
- }
+  padding: 2%; }
 
 img {
   width: 50%; }
@@ -66,12 +67,35 @@ button:hover {
 
 .create-form {
   text-align: center;
-  padding: 2%; }
+  padding: 2%;
+  transition: all linear 0.5s; }
 
 .indexHeader {
   text-align: center;
-  padding: 1%; }
+  padding: 1%;
+  background: url("http://www.cliffsofmoher.ie/wp-content/uploads/2013/04/CliffsSunset.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 6%;
+  width: 100vw;
+  color: white; }
   .indexHeader h1 {
     padding: 1%; }
+
+.bg1 {
+  background-image: url("http://www.tentree.com/blog/wp-content/uploads/2015/07/stanton-moor-5042x3151-peak-district-uk-forest-wildflowers-fog-5363-1024x683.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg2 {
+  background-image: url("http://taylordavidson.com/assets/img/2009/P1100950_street_stalls_600_alt.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 /*# sourceMappingURL=style.css.map */

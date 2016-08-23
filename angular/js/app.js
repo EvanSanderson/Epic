@@ -6,6 +6,7 @@
         "ui.router",
         "story",
         "home",
+        "ngAnimate"
     ])
     .config([
         "$stateProvider",

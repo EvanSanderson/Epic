@@ -31,11 +31,12 @@
 </div>
 
 <hr>
+<div class="bg1"> </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 story_show" data-ng-repeat="story in stories | orderBy: 'date'">
     <!-- story information listed below -->
       <h1> {{story.title}} </h1>
-      <a src={{story.map_loc}}> Map Location </a>
+      <a href={{story.map_loc}}> Map Location </a>
       <p> {{story.summary}} </p>
       <p> {{story.date}} </p>
       <img src={{story.media_url}}>
@@ -56,3 +57,4 @@
       </div>
   </div>
 </div>
+<div class="bg2"></div>
