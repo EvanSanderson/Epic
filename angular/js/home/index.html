@@ -1,10 +1,11 @@
 
 
+<div class="indexHeader">
+		<h1 class="h1_title">Epics </h1>
+		<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Create</button>
+		<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Cancel</button>
+</div>
 
-<h1 class="h1_title">Epics<a data-ui-sref="epicNew">(+)</a></h1>
-
-<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Create</button>
-<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Cancel</button>
 
 <div class="create-form" data-ng-show="HomeIndexCtrl.showNew">
 <form>

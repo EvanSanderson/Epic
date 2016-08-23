@@ -1,0 +1,94 @@
+
+img{
+  width: 50%;;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Cardo', serif;
+}
+
+.angular-google-map-container {
+	height: 80vh;
+}
+
+#map {
+  height: 100vh;
+
+}
+#main {
+  height: 100vh;
+
+}
+
+#marker {
+  height: 5px;
+}
+
+
+.window_info {
+  color: blue;
+  text-align: center;
+
+}
+.window_info:hover {
+  text-decoration: none;
+  color: blue;
+}
+
+.story_show {
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  padding: 2%;
+}
+
+img {
+  width: 50%;
+}
+
+.storyHeader {
+  text-align: center;
+  font-size: 2em;
+}
+
+button {
+    background-color: #5D4A66;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+  background-color: white;
+  color: #505A5B
+}
+
+.addStory {
+  text-align: center;
+  padding: 2%;
+}
+
+.edit-epic-form {
+  text-align: center;
+  padding: 2%;
+}
+
+.create-form {
+  text-align: center;
+  padding: 2%;
+}
+
+.indexHeader {
+  text-align: center;
+  padding: 1%;
+
+    h1 {
+      padding: 1%;
+    }
+}
