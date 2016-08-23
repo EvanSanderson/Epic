@@ -186,6 +186,7 @@
             url: 'shadowPin.png',
             scaledSize: {width: 40, height: 40}
           },
+          animation: window.google.maps.Animation.DROP
         }
       }
       // Event for marker clicks \\
