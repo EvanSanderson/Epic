@@ -2,6 +2,19 @@
 <h1> {{epic.title}}</h1>
 <hr>
 
+<button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(epic)">Update Epic</button>
+<button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(epic)">Cancel</button>
+<div class= "edit-story-form" ng-show="epic.showEdit">
+<form>
+  <input placeholder="Title" data-ng-model="epic.title">
+  <input placeholder="Name" data-ng-model="epic.name">
+  <input placeholder="Summary" data-ng-model="epic.summary">
+  <input placeholder="Img URL" data-ng-model="epic.img_url">
+  <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeShowCtrl.update(epic)">Update</button>
+  <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeShowCtrl.delete(epic)">Delete</button>
+</form>
+</div>
+
 <h3> Add A Story </h3>
 <form>
   <input placeholder = "Title" data-ng-model="HomeShowCtrl.story.title" />

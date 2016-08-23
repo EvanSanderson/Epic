@@ -27,6 +27,23 @@
           })
       })
 
+      // update and delete
+  		$scope.update = function(epic) {
+        this.toggleEdit(epic)
+  			$scope.epic = epic;
+  			console.log($scope.epic)
+  			$scope.epic.$update({id: epic.id})
+  		}
+  		$scope.delete = function(epic) {
+        this.toggleEdit(epic)
+  			$scope.epic = epic;
+  			$scope.epic.$delete({id: epic.id})
+  		}
+
+      this.toggleEdit = function(epic){
+        epic.showEdit = !epic.showEdit;
+      }
+
       // creating stories that associate with the epic you are on
       this.story = new StoryFactory();
       this.create = function(){

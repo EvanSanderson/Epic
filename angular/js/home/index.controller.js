@@ -14,21 +14,7 @@
     function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
       // Epic data \\
       $scope.epics = HomeFactory.query();
-      this.update = function(epic) {
-        this.toggleEdit(epic);
-        this.epic = epic;
-        console.log(this.epic)
-          this.epic.$update({id: epic.id})
-      }
-
-      // delete function
-      this.delete = function(epic) {
-        this.toggleEdit(epic);
-        this.epic = epic;
-        this.epic.$delete({id: epic.id}).then(function(){
-          $state.transitionTo('epicIndex', null, {reload: true});
-        })
-      }
+    
 
       // create function
       this.epic = new HomeFactory();
@@ -209,16 +195,6 @@ longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.vie
 
 
 
-		// update and delete
-		$scope.update = function(epic) {
-			$scope.epic = epic;
-			console.log($scope.epic)
-			$scope.epic.$update({id: epic.id})
-		}
-		$scope.delete = function(epic) {
-			$scope.epic = epic;
-			$scope.epic.$delete({id: epic.id})
-		}
 
 	}
 
