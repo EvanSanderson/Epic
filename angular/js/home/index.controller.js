@@ -170,9 +170,11 @@
       // Marker events \\
       $scope.markerClick = function(marker){
         console.log(marker);
-        var contentString = '<div class="window_wrapper"><a class="window_link" href=#/epics/'+marker.model.id+'>'+marker.model.title+'</a>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></div>'
+        var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3>'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
         var infowindow = new google.maps.InfoWindow({
-          content: contentString
+          content: contentString,
+          scrollwheel: false
+
         })
           infowindow.open(map, marker);
       };

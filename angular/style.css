@@ -1,3 +1,4 @@
+/* WINSTON CSS START */
 body {
   height: 100vh;
 }
@@ -22,12 +23,25 @@ body {
   margin: 0 auto 5px auto;
   text-align: center;
 }
-.window_info{
+.window_wrapper {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.window_img {
+  max-width: 200px;
+  max-height: 200px;
+}
+.window_link{
+  margin: 0 auto;
+  color: black;
+}
+.window_wrapper:hover{
+  text-decoration: none;
   color: violet;
-  text-align: center;
+  border: 1px solid violet;
 }
 
-.window_info:hover{
-  text-decoration: none;
-  color: blue;
-}
+/* WINSTON CSS END */
