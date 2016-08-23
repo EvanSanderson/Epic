@@ -21,16 +21,18 @@
   <input placeholder = "Map Location" data-ng-model="HomeShowCtrl.story.map_loc" />
   <input placeholder = "Media URL" data-ng-model="HomeShowCtrl.story.media_url" />
   <input placeholder = "Summary" data-ng-model="HomeShowCtrl.story.summary" />
+  <input type = "date" data-ng-model="HomeShowCtrl.story.date" />
   <button type="button" data-ng-click="HomeShowCtrl.create()">Create</button>
 </form>
 
 <hr>
 
-<div data-ng-repeat="story in stories">
+<div data-ng-repeat="story in stories | orderBy: 'date'">
 <!-- story information listed below -->
   <h1> {{story.title}} </h1>
   <a src={{story.map_loc}}> Map Location </a>
   <p> {{story.summary}} </p>
+  <p> {{story.date}} </p>
   <img src={{story.media_url}}>
 
 <!--  buttons to hide and unhide update function on stories -->
