@@ -30,17 +30,7 @@
       }
     };
 
-    // create function
-    this.epic = new HomeFactory();
-    this.create = function(){
-      this.epic.lat = $scope.search.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-      .viewport.f.b;
-      this.epic.long = $scope.search.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-      .viewport.b.f;
-      console.log(this.epic)
-      this.epic.$save()
-      $state.transitionTo('epicIndex', null, {reload: true});
-    }
+
 
     // Google Maps Data \\
     // Google Map Styling
@@ -142,21 +132,7 @@
         minZoom: 3,
       },
     },
-    // Marker Locations
-    $scope.markers = [{
-      id: 0,
-      title: "<a href='/#/stories'>New York</a>",
-      coords: {
-        latitude: 40.7128,
-        longitude: -74.0059
-      }},
-    {id: 1,
-      title: "San Diego",
-      coords: {
-        latitude: 32.7157,
-        longitude: -117.1611
-      }
-    }]
+
     // Custom Icon
     $scope.markersOptions = {
       options: {draggable: false,

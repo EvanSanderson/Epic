@@ -1,5 +1,5 @@
 body {
-  height: 100vh;
+  height: 100%;
 }
 .angular-google-map-container { 
 	height: 80vh; 
@@ -18,8 +18,11 @@ body {
   height: 5px,
 }
 
+.float_right {
+}
+
 .h1_title {
-  margin: 0 auto 5px auto;
+  margin: 1px auto;
   text-align: center;
 }
 .window_info{

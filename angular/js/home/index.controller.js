@@ -21,6 +21,7 @@
           this.epic.$update({id: epic.id})
       }
 
+      // delete function
       this.delete = function(epic) {
         this.toggleEdit(epic);
         this.epic = epic;
@@ -29,9 +30,24 @@
         })
       }
 
-      this.toggleEdit = function(epic){
-        epic.showEdit = !epic.showEdit;
+      // create function
+      this.epic = new HomeFactory();
+      this.create = function($scope){
+        this.toggleNew()
+        this.epic.lat = latitude[0]
+        this.epic.long = longitude[0]
+        console.log(latitude[0])
+        this.epic.$save().then(function(){
+          $state.transitionTo('epicIndex', null, {reload: true});
+        })
       }
+
+      // toggles hide function on buttons
+      this.toggleNew = function(){
+        console.log("working")
+        this.showNew = !this.showNew;
+      }
+
       // Google Maps Data \\
       // Google Map Styling
       var stylesArray =[
@@ -117,10 +133,11 @@
         { "gamma": 0.47 },
         { "weight": 2.7 }
         ]}
+
       ]
         // How the map appears on rendering
         $scope.map = { center: {
-          latitude: 18,
+          latitude: 30,
           longitude: -30},
           zoom: 3,
         }
@@ -133,20 +150,24 @@
         },
       },
       // Marker Locations
-      $scope.markers = [{
-        id: 0,
-        title: "<a href='/#/stories'>New York</a>",
-        coords: {
-          latitude: 40.7128,
-          longitude: -74.0059
-        }},
-      {id: 1,
-        title: "San Diego",
-        coords: {
-          latitude: 32.7157,
-          longitude: -117.1611
-        }
-      }]
+
+      $scope.markers = []
+      $scope.marker = HomeFactory.query().$promise.then(function(val){
+        angular.forEach(val, function(val, key) {
+          console.log(val.img_url);
+          $scope.markers.push({
+            id: val.id,
+            title: val.title,
+            sum: val.summary,
+            coords: {
+              latitude: val.lat,
+              longitude: val.long
+            }
+          })
+        })
+        console.log($scope.markers[0].img);
+      })
+
       // Custom Icon
       $scope.markersOptions = {
         options: {draggable: false,
@@ -165,17 +186,22 @@
       }
 
 
+var latitude = [];
+var longitude = [];
     $scope.searchbox = {
       template:'searchbox.tpl.html',
       events: {
         places_changed: function (searchBox) {
-          console.log(searchBox)
-          console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-          console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-.viewport.b.f)
-          console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-.viewport.f.b)
-          console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+//           console.log(searchBox)
+//           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+//           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+// .viewport.b.f)
+//           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+// .viewport.f.b)
+//           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+  latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
+longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+
           // $scope.markerList.push()
         }
       }
