@@ -8,6 +8,7 @@
         '$scope',
 				'uiGmapGoogleMapApi',
         '$state',
+        '$stateParams',
         HomeIndexControllerFunction
     ])
 
@@ -17,7 +18,6 @@
       this.update = function(epic) {
         this.toggleEdit(epic);
         this.epic = epic;
-        console.log(this.epic)
           this.epic.$update({id: epic.id})
       }
 
@@ -36,7 +36,6 @@
         this.toggleNew()
         this.epic.lat = latitude[0]
         this.epic.long = longitude[0]
-        console.log(latitude[0])
         this.epic.$save().then(function(){
           $state.transitionTo('epicIndex', null, {reload: true});
         })
@@ -135,13 +134,15 @@
         ]}
 
       ]
-        // How the map appears on rendering
+        // How the map appears on rendering \\
         $scope.map = { center: {
           latitude: 30,
           longitude: -30},
           zoom: 3,
+          show: false,
+          model: {}
         }
-      // Map Styles
+      // Map Styles \\
       $scope.options = {
         styles: stylesArray,
         options: {
@@ -149,26 +150,34 @@
           minZoom: 3,
         },
       },
-      // Marker Locations
-
-      $scope.markers = []
+      // Marker Locations \\
+      $scope.markers = [];
       $scope.marker = HomeFactory.query().$promise.then(function(val){
         angular.forEach(val, function(val, key) {
-          console.log(val.img_url);
           $scope.markers.push({
             id: val.id,
             title: val.title,
             sum: val.summary,
+            img: val.img_url,
             coords: {
               latitude: val.lat,
               longitude: val.long
             }
           })
         })
-        console.log($scope.markers[0].img);
       })
 
-      // Custom Icon
+      // Marker events \\
+      $scope.markerClick = function(marker){
+        console.log(marker);
+        var contentString = '<div class="window_wrapper"><a class="window_link" href=#/epics/'+marker.model.id+'>'+marker.model.title+'</a>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></div>'
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        })
+          infowindow.open(map, marker);
+      };
+
+      // Custom Icon \\
       $scope.markersOptions = {
         options: {draggable: false,
           icon:{
@@ -177,49 +186,53 @@
           },
         }
       }
-      // Event for marker clicks
-      $scope.markerClick = {
-        function(model, eventName, marker, args){
-          model.show = true;
-          $scope.$apply();
+      // Event for marker clicks \\
+      // $scope.markerClick = {
+      //   function(model, eventName, marker, args, $stateParams){
+      //     console.log("state", $stateParams);
+      //     model.show = true;
+      //     $scope.$apply();
+      //   }
+      // }
+
+      // $scope.closeClick = function() {
+      //   $scope.windowOptions.visible = false;
+      // };
+
+      var latitude = [];
+      var longitude = [];
+      $scope.searchbox = {
+        template:'searchbox.tpl.html',
+        events: {
+          places_changed: function (searchBox) {
+            //           console.log(searchBox)
+            //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+            //           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+            // .viewport.b.f)
+            //           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+            // .viewport.f.b)
+            //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
+              longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+
+              // $scope.markerList.push()
+          }
         }
+      };
+
+
+
+      // update and delete
+      $scope.update = function(epic) {
+        $scope.epic = epic;
+        console.log($scope.epic)
+          $scope.epic.$update({id: epic.id})
+      }
+      $scope.delete = function(epic) {
+        $scope.epic = epic;
+        $scope.epic.$delete({id: epic.id})
       }
 
-
-var latitude = [];
-var longitude = [];
-    $scope.searchbox = {
-      template:'searchbox.tpl.html',
-      events: {
-        places_changed: function (searchBox) {
-//           console.log(searchBox)
-//           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-//           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-// .viewport.b.f)
-//           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-// .viewport.f.b)
-//           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-  latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
-longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-
-          // $scope.markerList.push()
-        }
-      }
-    };
-
-
-
-		// update and delete
-		$scope.update = function(epic) {
-			$scope.epic = epic;
-			console.log($scope.epic)
-			$scope.epic.$update({id: epic.id})
-		}
-		$scope.delete = function(epic) {
-			$scope.epic = epic;
-			$scope.epic.$delete({id: epic.id})
-		}
-
-	}
+    }
 
 }())
