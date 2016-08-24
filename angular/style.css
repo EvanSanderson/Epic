@@ -6,6 +6,17 @@ body {
 	height: 80vh; 
 }
 
+.window_header {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #48b5e9;
+  color: white;
+  margin: 1px;
+  border-radius: 2px 2px 0 0;
+}
+
 #map {
   height: 100vh;
 }
@@ -40,8 +51,8 @@ body {
 }
 .window_wrapper:hover{
   text-decoration: none;
-  color: violet;
-  border: 1px solid violet;
+  border: 3px solid #48b5e9;
+  color: black;
 }
 
 /* WINSTON CSS END */
