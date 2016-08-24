@@ -25,7 +25,6 @@
           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
           .viewport.f.b)
           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-          // $scope.markerList.push()
         }
       }
     };

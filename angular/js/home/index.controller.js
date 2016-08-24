@@ -12,12 +12,11 @@
     ])
 
     function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
-      // Epic data \\
+      // Epic data
       $scope.epics = HomeFactory.query();
       this.update = function(epic) {
         this.toggleEdit(epic);
         this.epic = epic;
-        console.log(this.epic)
           this.epic.$update({id: epic.id})
       }
 
@@ -25,7 +24,9 @@
       this.delete = function(epic) {
         this.toggleEdit(epic);
         this.epic = epic;
+        var item = this.epic;
         this.epic.$delete({id: epic.id}).then(function(){
+          // angular.element(item).remove()
           $state.transitionTo('epicIndex', null, {reload: true});
         })
       }
@@ -36,15 +37,18 @@
         this.toggleNew()
         this.epic.lat = latitude[0]
         this.epic.long = longitude[0]
-        console.log(latitude[0])
+        var item = this.epic
         this.epic.$save().then(function(){
+          var newEpic = document.createElement('a');
+          newEpic.setAttribute('href', '/#/epics/' + item.id);
+          angular.element(newEpic).append(item.title);
+          angular.element(document.getElementById("epic-list")).append(newEpic);
           $state.transitionTo('epicIndex', null, {reload: true});
         })
       }
 
       // toggles hide function on buttons
       this.toggleNew = function(){
-        console.log("working")
         this.showNew = !this.showNew;
       }
 
@@ -154,7 +158,6 @@
       $scope.markers = []
       $scope.marker = HomeFactory.query().$promise.then(function(val){
         angular.forEach(val, function(val, key) {
-          console.log(val.img_url);
           $scope.markers.push({
             id: val.id,
             title: val.title,
@@ -165,7 +168,6 @@
             }
           })
         })
-        console.log($scope.markers[0].img);
       })
 
       // Custom Icon
@@ -186,33 +188,30 @@
       }
 
 
-var latitude = [];
-var longitude = [];
-    $scope.searchbox = {
-      template:'searchbox.tpl.html',
-      events: {
-        places_changed: function (searchBox) {
-//           console.log(searchBox)
-//           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-//           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-// .viewport.b.f)
-//           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-// .viewport.f.b)
-//           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-  latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
-longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+    var latitude = [];
+    var longitude = [];
+        $scope.searchbox = {
+          template:'searchbox.tpl.html',
+          events: {
+            places_changed: function (searchBox) {
+    //           console.log(searchBox)
+    //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+    //           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+    // .viewport.b.f)
+    //           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
+    // .viewport.f.b)
+    //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+    latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
+    longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
 
           // $scope.markerList.push()
         }
       }
     };
 
-
-
 		// update and delete
 		$scope.update = function(epic) {
 			$scope.epic = epic;
-			console.log($scope.epic)
 			$scope.epic.$update({id: epic.id})
 		}
 		$scope.delete = function(epic) {
