@@ -8,15 +8,57 @@
   padding: 5%;
   border-radius: 30px;
   background: rgba(40, 46, 52, 0.8); }
+
+
   .indexWords h1 {
     font-size: 5em;
     font-weight: bold; }
 
-img {
-  width: 50%; }
 
 body {
+  font-family: "Lato", sans-serif;
+
+}
+
+.epic-list {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.epic-list a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+.epic-list a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+.epic-list .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 30px;
   height: 100vh;
+<<<<<<< HEAD
   font-family: 'Cardo', serif; }
 
 .angular-google-map-container {
@@ -26,8 +68,25 @@ body {
 #map {
   height: 50vh; }
 
-#main {
-  height: 100vh; }
+.angular-google-map-container {
+	height: 80vh;
+}
+
+.window_header {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #48b5e9;
+  color: white;
+  margin: 1px;
+  border-radius: 2px 2px 0 0;
+}
+
+#map {
+  height: 100vh;
+}
+>>>>>>> 840fae33d8ac3acb8ffddfa2af7e74948de8a4bc
 
 #marker {
   height: 5px; }
@@ -94,6 +153,7 @@ button:hover {
   padding: 6%;
   width: 100vw;
   color: white; }
+
   .indexHeader h1 {
     padding: 1%; }
 
@@ -116,9 +176,6 @@ button:hover {
 #slides_control > div {
   height: 200px; }
 
-img {
-  margin: auto;
-  width: 400px; }
 
 #slides_control {
   position: absolute;
@@ -147,3 +204,25 @@ img {
   width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
+
+}
+.window_wrapper {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.window_img {
+  max-width: 200px;
+  max-height: 200px;
+}
+.window_link{
+  margin: 0 auto;
+  color: black;
+}
+.window_wrapper:hover{
+  text-decoration: none;
+  border: 3px solid #48b5e9;
+  color: black;
+}
