@@ -47,6 +47,12 @@
 			templateUrl: "js/home/show.html",
 			controller: "HomeShowController",
 			controllerAs: "HomeShowCtrl"
-		});
+		})
+    .state("otherwise", {
+      url : "*path",
+      templateUrl: "js/home/index.html",
+      controller: "HomeIndexController",
+      controllerAs: "HomeIndexCtrl"
+    });
   	}
 }())

@@ -1,5 +1,5 @@
 <div class="storyHeader">
-    <h1> {{epic.title}}</h1>
+    <h1> {{epic.title}} </h1>
 
     <button type="button" data-ng-if="!epic.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(epic)">Update Epic</button>
     <button type="button" data-ng-if="epic.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(epic)">Cancel</button>
@@ -20,6 +20,8 @@
 
 <div class="addStory">
 <h3> Add A Story </h3>
+<p> Use the form below to add stories from your trip. Include a title, short summary, image, and date. </p>
+<p> Your stories will then be automatically added to your Epic, and listed in chronological order. </p>
     <form>
       <input placeholder = "Title" data-ng-model="HomeShowCtrl.story.title" />
       <input placeholder = "Map Location" data-ng-model="HomeShowCtrl.story.map_loc" />
@@ -31,33 +33,37 @@
 </div>
 
 <hr>
+
 <div class="bg1"> </div>
 <div class="container">
 <div class="row">
     <div class="col-md-12 story_show" data-ng-repeat="story in stories | orderBy: 'date'">
     <!-- story information listed below -->
       <h1> {{story.title}} </h1>
-      <a href={{story.map_loc}}> Map Location </a>
-      <p> {{story.summary}} </p>
-      <p> {{story.date}} </p>
+      <h3> {{story.date}} | <a href={{story.map_loc}}> Map Location </a></h3>
       <img class = "storyImage" src={{story.media_url}}>
+      <p> {{story.summary}} </p>
 <hr>
 <!--  buttons to hide and unhide update function on stories -->
   <button type="button" data-ng-if="!story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Update</button>
   <button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Cancel</button>
 <!-- form for updating stories -->
-  <div class="edit-form" data-ng-show="story.showEdit">
+  <div class="edit-form" data-ng-show="story.showEdit" id="usrform">
         <form>
           <input placeholder="Title" data-ng-model="story.title">
           <input placeholder="Map Location" data-ng-model="story.map_loc">
           <input placeholder="Media URL" data-ng-model="story.media_url">
-  				<input placeholder="Summary" data-ng-model="story.summary">
+          <input placeholder="Summary" data-ng-model="story.summary">
+          <br>
   				<button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.update(story)">Update</button>
           <button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.delete(story)">Delete</button>
         </form>
+        <br>
       </div>
   </div>
 
+
 </div>
+
 </div>
 <div class="bg2"></div>

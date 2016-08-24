@@ -36,16 +36,17 @@
       </div>
 
       <!-- Controls -->
-      <a class="left carousel-control" href="#epic-carousel" role="button" data-slide="prev">
+      <a class="left carousel-control" href="#epic-carousel" role="button" data-slide="prev" ng-non-bindable>
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
-      <a class="right carousel-control" href="#epic-carousel" role="button" data-slide="next">
+      <a class="right carousel-control" href="#epic-carousel" role="button" data-slide="next" ng-non-bindable>
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div> <!-- Carousel -->
 
 
 <div class="create-form" data-ng-show="HomeIndexCtrl.showNew">
+	<h1> Use this form to add an Epic. </h1>
 <form>
    <input placeholder = "Name" data-ng-model="HomeIndexCtrl.epic.name" />
    <input placeholder = "Title" data-ng-model="HomeIndexCtrl.epic.title" />

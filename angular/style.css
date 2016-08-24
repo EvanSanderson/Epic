@@ -71,11 +71,11 @@ body {
 }
 
 .window_header {
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 22px;
   font-weight: 400;
   padding: 10px;
-  background-color: #48b5e9;
+  background-color: #282E34;
+  text-align: center;
   color: white;
   margin: 1px;
   border-radius: 2px 2px 0 0;
@@ -94,7 +94,7 @@ body {
 
 .window_info:hover {
   text-decoration: none;
-  color: blue; }
+  color: #282E34; }
 
 .story_show {
   text-align: center;
@@ -139,7 +139,8 @@ button:hover {
 
 .edit-epic-form {
   text-align: center;
-  padding: 2%; }
+  padding: 2%;
+ }
 
 .create-form {
   text-align: center;
@@ -167,15 +168,18 @@ button:hover {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  border-radius: 10px;
+ }
 
 .bg2 {
-  background-image: url("http://taylordavidson.com/assets/img/2009/P1100950_street_stalls_600_alt.jpg");
+  background-image: url("thailand.jpg");
   min-height: 500px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  border-radius: 10px; }
 
 #slides_control > div {
   height: 200px; }
@@ -222,8 +226,9 @@ button:hover {
   max-height: 200px;
 }
 .window_link{
-  margin: 0 auto;
-  color: blue;
+  text-align: center;
+  color: #282e34;
+  text-decoration: none;
 }
 
 
@@ -231,48 +236,13 @@ button:hover {
   margin-bottom: 5%;
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: rgba(192, 192, 192);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.modal-content p {
-  color: black;
-}
-
-/* The Close Button */
-.close {
-    color: red;
-    /*float: right;*/
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: -20%;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .edit-form {
   color:black;
+  margin-top: 10%;
+}
+
+.edit-form button {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }

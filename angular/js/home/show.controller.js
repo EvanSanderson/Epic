@@ -34,14 +34,17 @@
         this.toggleEdit(epic)
   			$scope.epic = epic;
   			console.log($scope.epic)
-  			$scope.epic.$update({id: epic.id})
-  		}
+  			$scope.epic.$update({id: epic.id}).then(function(){
+          $state.transitionTo('epicShow', {id: $stateParams.id}, {reload: true});
+  		})
+    }
   		$scope.delete = function(epic) {
         this.toggleEdit(epic)
   			$scope.epic = epic;
-  			$scope.epic.$delete({id: epic.id})
-  		}
-
+  			$scope.epic.$delete({id: epic.id}).then(function(){
+          $state.transitionTo('epicIndex', {reload: true});
+  		})
+}
       this.toggleEdit = function(epic){
         epic.showEdit = !epic.showEdit;
       }
@@ -59,8 +62,10 @@
       this.update = function(story) {
         this.toggleEdit(story)
         this.story = story
-        this.story.$update({id: story.id})
-      }
+        this.story.$update({id: story.id}).then(function(){
+          $state.transitionTo('epicShow', {id: $stateParams.id}, {reload: true});
+      })
+    }
 
       // deletes stories within epics
       this.delete = function(story) {
@@ -74,7 +79,7 @@
       this.toggleEdit = function(story){
         story.showEdit = !story.showEdit;
       }
-    }
 
+}
 
 })()
