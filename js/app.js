@@ -10,15 +10,10 @@
     ])
     .config([
         "$stateProvider",
+        "uiGmapGoogleMapApiProvider",
+        GoogleMap,
         RouterFunction
     ])
-    .config(["uiGmapGoogleMapApiProvider"], function(uiGmapGoogleMapApiProvider) {
-      uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyDNzHXnxO7i2lHvIufJw9jqta_MWpHyjTg',
-        v: '3.24',
-        libraries: 'places'
-      })
-    })
     .controller('MainController', function(HomeFactory, $scope) {
     	  $scope.epics = HomeFactory.query();
     	  $scope.open = function() {
@@ -33,6 +28,14 @@
         }
       }
     })
+
+    function GoogleMap(uiGmapGoogleMapApiProvider) {
+      uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyDNzHXnxO7i2lHvIufJw9jqta_MWpHyjTg',
+        v: '3.24',
+        libraries: 'places'
+      })
+    }
 
   	function RouterFunction($stateProvider) {
   		$stateProvider
