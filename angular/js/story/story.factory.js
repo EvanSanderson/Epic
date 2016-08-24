@@ -9,7 +9,7 @@
       ]);
 
       function StoryFactoryFunction($resource) {
-         return $resource("http://localhost:3000/stories/:id", {}, {
+         return $resource("https://salty-inlet-35098.herokuapp.com/stories/:id", {}, {
          update: { method: "PUT" }
       });
    }

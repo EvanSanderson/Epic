@@ -9,7 +9,7 @@
       ]);
 
       function HomeFactoryFunction($resource) {
-         return $resource("http://localhost:3000/epics/:id", {}, {
+         return $resource("https://salty-inlet-35098.herokuapp.com/epics/:id", {}, {
          update: { method: "PUT" }
       });
    }
