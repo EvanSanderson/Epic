@@ -58,7 +58,6 @@ body {
   transition: margin-left .5s;
   padding: 30px;
   height: 100vh;
-<<<<<<< HEAD
   font-family: 'Cardo', serif; }
 
 .angular-google-map-container {
@@ -86,7 +85,6 @@ body {
 #map {
   height: 100vh;
 }
->>>>>>> 840fae33d8ac3acb8ffddfa2af7e74948de8a4bc
 
 #marker {
   height: 5px; }
@@ -108,8 +106,6 @@ body {
   margin-top: 5%;
   border-radius: 30px; }
 
-img {
-  width: 50%; }
 
 .storyHeader {
   text-align: center;
@@ -205,7 +201,7 @@ button:hover {
 
 /*# sourceMappingURL=style.css.map */
 
-}
+
 .window_wrapper {
   display: flex;
   width: 400px;
