@@ -37,13 +37,13 @@
   	function RouterFunction($stateProvider) {
   		$stateProvider
   		.state("epicIndex", {
-	      url: "/Epics",
+	      url: "/Epic",
 	      templateUrl: "js/home/index.html",
 	      controller: "HomeIndexController",
 	      controllerAs: "HomeIndexCtrl"
    	})
 		.state("epicShow", {
-			url: "/Epics/:id",
+			url: "/epic/:id",
 			templateUrl: "js/home/show.html",
 			controller: "HomeShowController",
 			controllerAs: "HomeShowCtrl"
