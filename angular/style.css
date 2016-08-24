@@ -57,9 +57,7 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 30px;
-  height: 100vh;
-<<<<<<< HEAD
-  font-family: 'Cardo', serif; }
+  height: 100vh; }
 
 .angular-google-map-container {
   height: 75vh;
@@ -86,7 +84,6 @@ body {
 #map {
   height: 100vh;
 }
->>>>>>> 840fae33d8ac3acb8ffddfa2af7e74948de8a4bc
 
 #marker {
   height: 5px; }
@@ -106,10 +103,17 @@ body {
   margin-bottom: 5%;
   padding: 2%;
   margin-top: 5%;
-  border-radius: 30px; }
+  border-radius: 30px;
+  width: 50vw;
+  margin-left: 20%;
 
-img {
-  width: 50%; }
+}
+
+  .story_show img {
+    width: 50%;
+    border-radius: 10px;
+  }
+
 
 .storyHeader {
   text-align: center;
@@ -192,15 +196,15 @@ button:hover {
   width: 100%; }
 
 #beach {
-  height: 700px;
+  height: 500px;
   width: 100%; }
 
 #cliffs {
-  height: 700px;
+  height: 500px;
   width: 100%; }
 
 #ireland {
-  height: 700px;
+  height: 500px;
   width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
@@ -219,10 +223,56 @@ button:hover {
 }
 .window_link{
   margin: 0 auto;
+  color: blue;
+}
+
+
+#epic-carousel {
+  margin-bottom: 5%;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: rgba(192, 192, 192);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content p {
   color: black;
 }
-.window_wrapper:hover{
-  text-decoration: none;
-  border: 3px solid #48b5e9;
-  color: black;
+
+/* The Close Button */
+.close {
+    color: red;
+    /*float: right;*/
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -20%;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-form {
+  color:black;
 }
