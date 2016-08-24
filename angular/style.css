@@ -1,3 +1,20 @@
+.navbar {
+  margin-bottom: 0px; }
+
+.indexWords {
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 5%;
+  border-radius: 30px;
+  background: rgba(40, 46, 52, 0.8); }
+
+
+  .indexWords h1 {
+    font-size: 5em;
+    font-weight: bold; }
+
+
 body {
   font-family: "Lato", sans-serif;
 
@@ -39,12 +56,20 @@ body {
 
 #main {
   transition: margin-left .5s;
-  padding: 16px;
+  padding: 30px;
   height: 100vh;
-}
+<<<<<<< HEAD
+  font-family: 'Cardo', serif; }
 
-.angular-google-map-container { 
-	height: 80vh; 
+.angular-google-map-container {
+  height: 75vh;
+  border: 5px solid #5D4A66; }
+
+#map {
+  height: 50vh; }
+
+.angular-google-map-container {
+	height: 80vh;
 }
 
 .window_header {
@@ -61,14 +86,125 @@ body {
 #map {
   height: 100vh;
 }
+>>>>>>> 840fae33d8ac3acb8ffddfa2af7e74948de8a4bc
 
 #marker {
-  height: 5px,
-}
+  height: 5px; }
 
-.h1_title {
-  margin: 0 auto 5px auto;
+.window_info {
+  color: blue;
+  text-align: center; }
+
+.window_info:hover {
+  text-decoration: none;
+  color: blue; }
+
+.story_show {
   text-align: center;
+  background: #282E34;
+  color: white;
+  margin-bottom: 5%;
+  padding: 2%;
+  margin-top: 5%;
+  border-radius: 30px; }
+
+img {
+  width: 50%; }
+
+.storyHeader {
+  text-align: center;
+  font-size: 2em; }
+
+button {
+  background-color: #5D4A66;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; }
+
+button:hover {
+  background-color: white;
+  color: #505A5B; }
+
+.addStory {
+  text-align: center;
+  padding: 2%; }
+
+.edit-epic-form {
+  text-align: center;
+  padding: 2%; }
+
+.create-form {
+  text-align: center;
+  padding: 2%;
+  transition: all linear 0.5s;
+  height: 50%;
+  color: #282e34;
+  font-weight: bold; }
+
+.indexHeader {
+  text-align: center;
+  padding: 1%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 6%;
+  width: 100vw;
+  color: white; }
+
+  .indexHeader h1 {
+    padding: 1%; }
+
+.bg1 {
+  background-image: url("http://www.tentree.com/blog/wp-content/uploads/2015/07/stanton-moor-5042x3151-peak-district-uk-forest-wildflowers-fog-5363-1024x683.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg2 {
+  background-image: url("http://taylordavidson.com/assets/img/2009/P1100950_street_stalls_600_alt.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#slides_control > div {
+  height: 200px; }
+
+
+#slides_control {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 20px;
+  margin-left: -200px; }
+
+.carousel {
+  width: 100%;
+  margin: 0 auto; }
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+  width: 100%; }
+
+#beach {
+  height: 700px;
+  width: 100%; }
+
+#cliffs {
+  height: 700px;
+  width: 100%; }
+
+#ireland {
+  height: 700px;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */
+
 }
 .window_wrapper {
   display: flex;
@@ -90,4 +226,3 @@ body {
   border: 3px solid #48b5e9;
   color: black;
 }
-

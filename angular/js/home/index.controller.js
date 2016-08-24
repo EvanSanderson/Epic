@@ -12,6 +12,7 @@
         HomeIndexControllerFunction
     ])
 
+
     function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
       // Epic data
       $scope.epics = HomeFactory.query();
@@ -127,17 +128,6 @@
         }
       }
 
-
-
-      // update and delete
-      $scope.update = function(epic) {
-        $scope.epic = epic;
-        $scope.epic.$update({id: epic.id})
-      }
-      $scope.delete = function(epic) {
-        $scope.epic = epic;
-        $scope.epic.$delete({id: epic.id})
-      }
 
     }
 

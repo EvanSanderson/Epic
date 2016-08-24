@@ -4,6 +4,8 @@
 	angular
 	.module("home", [
 		"uiGmapgoogle-maps",
-		"ngResource"
+		"ngResource",
+		"ngAnimate",
+		"ui.bootstrap"
 	]);
 }());
