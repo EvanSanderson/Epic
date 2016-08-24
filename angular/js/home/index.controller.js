@@ -64,92 +64,89 @@
           draggable: true,
           minZoom: 3,
         },
-      },
+      }
+
       // Marker Locations \\
       $scope.markers = [];
-      $scope.marker = HomeFactory.query().$promise.then(function(val){
-        angular.forEach(val, function(val, key) {
-          $scope.markers.push({
-            id: val.id,
-            title: val.title,
-            sum: val.summary,
-            img: val.img_url,
-            coords: {
-              latitude: val.lat,
-              longitude: val.long
-            }
+        $scope.marker = HomeFactory.query().$promise.then(function(val){
+          angular.forEach(val, function(val, key) {
+            $scope.markers.push({
+              id: val.id,
+              title: val.title,
+              sum: val.summary,
+              img: val.img_url,
+              coords: {
+                latitude: val.lat,
+                longitude: val.long
+              }
+            })
           })
         })
-      })
 
-      // Marker events \\
-      $scope.markerClick = function(marker){
-        console.log(marker);
-        var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            scrollwheel: false
+        // Marker events \\
+        $scope.markerClick = function(marker){
+          console.log(marker);
+          var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString,
+              scrollwheel: false
 
-          })
-        infowindow.open(map, marker);
-      };
+            })
+          infowindow.open(map, marker);
+        };
 
-      // Custom Icon \\
-      $scope.markersOptions = {
-        options: {draggable: false,
-          icon:{
-            url: 'shadowPin.png',
-            scaledSize: {width: 40, height: 40}
-          },
-          animation: window.google.maps.Animation.DROP
-        }
-      }
-      // Event for marker clicks \\
-      // $scope.markerClick = {
-      //   function(model, eventName, marker, args, $stateParams){
-      //     console.log("state", $stateParams);
-      //     model.show = true;
-      //     $scope.$apply();
-      //   }
-      // }
-
-      // $scope.closeClick = function() {
-      //   $scope.windowOptions.visible = false;
-      // };
-
-      var latitude = [];
-      var longitude = [];
-      $scope.searchbox = {
-        template:'searchbox.tpl.html',
-        events: {
-          places_changed: function (searchBox) {
-            //           console.log(searchBox)
-            //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-            //           console.log("Long " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-            // .viewport.b.f)
-            //           console.log("Lat " + searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry
-            // .viewport.f.b)
-            //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b)
-              longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-
-              // $scope.markerList.push()
+        // Custom Icon \\
+        $scope.markersOptions = {
+          options: {draggable: false,
+            icon:{
+              url: 'shadowPin.png',
+              scaledSize: {width: 40, height: 40}
+            },
+            animation: window.google.maps.Animation.DROP
           }
         }
-      };
+        // Event for marker clicks \\
+        // $scope.markerClick = {
+        //   function(model, eventName, marker, args, $stateParams){
+        //     console.log("state", $stateParams);
+        //     model.show = true;
+        //     $scope.$apply();
+        //   }
+        // }
+
+        // $scope.closeClick = function() {
+        //   $scope.windowOptions.visible = false;
+        // };
+
+        var latitude = [];
+        var longitude = [];
+        $scope.searchbox = {
+          template:'searchbox.tpl.html',
+          events: {
+            places_changed: function (searchBox) {
+              //           console.log(searchBox)
+              //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+              //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+              latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
+              longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+
+                // $scope.markerList.push()
+            }
+          }
+        }
 
 
 
-      // update and delete
-      $scope.update = function(epic) {
-        $scope.epic = epic;
-        console.log($scope.epic)
-          $scope.epic.$update({id: epic.id})
-      }
-      $scope.delete = function(epic) {
-        $scope.epic = epic;
-        $scope.epic.$delete({id: epic.id})
-      }
+        // update and delete
+        $scope.update = function(epic) {
+          $scope.epic = epic;
+          console.log($scope.epic)
+            $scope.epic.$update({id: epic.id})
+        }
+        $scope.delete = function(epic) {
+          $scope.epic = epic;
+          $scope.epic.$delete({id: epic.id})
+        }
 
     }
 

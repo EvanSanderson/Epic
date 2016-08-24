@@ -9,10 +9,12 @@
    <input placeholder = "Title" data-ng-model="HomeIndexCtrl.epic.title" />
    <input placeholder = "Summary" data-ng-model="HomeIndexCtrl.epic.summary" />
    <input placeholder = "Image URL" data-ng-model="HomeIndexCtrl.epic.img_url" />
-<button type="button" data-ng-if ="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.create()">Create</button>
+<button type="button" data-ng-if ="HomeIndexCtrl.showNew"
+  data-ng-click="HomeIndexCtrl.create()">Create</button>
 </div>
 
-<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom' id="map" events="options.events" >
+<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
+  id="map" events="options.events">
 	<script id="searchbox.tpl.html" type="text/ng-template">
 		<form>
 			<input placeholder="Epic Location..." type="text" ng-model="text" name="text" /
