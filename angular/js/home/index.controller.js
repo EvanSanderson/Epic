@@ -48,8 +48,7 @@
             angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
           });
-        $scope.map.center = { latitude: latitude[0], longitude: longitude[0]
-        };
+        $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
       }
 
       // toggles hide function on buttons
@@ -91,6 +90,7 @@
               longitude: val.long
             }
           })
+
           $scope.map.center.latitude = val.lat;
           $scope.map.center.longitude = val.long;
           $scope.map.refresh = true;
@@ -102,10 +102,10 @@
         var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
           var infowindow = new google.maps.InfoWindow({
             content: contentString,
-            scrollwheel: false
-
+            scrollwheel: false,
           })
         infowindow.open(map, marker);
+        $scope.map.center = { latitude: marker.model.coords.latitude, longitude: marker.model.coords.longitude, zoom: 5 };
       };
 
       // Custom Icon \\
@@ -131,8 +131,6 @@
           }
         }
       }
-      console.log("map lat", $scope.map.center.latitude);
-
     }
 
 }())
