@@ -222,3 +222,10 @@ button:hover {
   border: 3px solid #48b5e9;
   color: black;
 }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+}
+
+

@@ -13,6 +13,7 @@
     ])
 
     function HomeShowControllerFunction($stateParams, HomeFactory, StoryFactory, $scope, $state){
+      $scope.isHome = false;
       $scope.epic = HomeFactory.get({id: $stateParams.id})
       console.log($scope.epic)
       $scope.stories = []
