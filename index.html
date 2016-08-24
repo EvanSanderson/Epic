@@ -39,13 +39,13 @@
 
     <div class="epic-list" id="epic-list">
       <div data-ng-repeat="epic in epics">
-        <a href="/epics/{{ epic.id }}">{{ epic.title }}</a>
+        <a href="/Epics/{{ epic.id }}">{{ epic.title }}</a>
       </div>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <ul class="nav navbar-nav">
-        <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+        <li><a href="/Epics"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
         <li data-ng-if="!HomeIndexCtrl.epicList" ng-click="open()"><a>Epics</a></li>
       </ul>
     </nav>
