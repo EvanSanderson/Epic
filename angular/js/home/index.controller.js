@@ -108,6 +108,7 @@
         $scope.map.center = { latitude: marker.model.coords.latitude, longitude: marker.model.coords.longitude, zoom: 5 };
       };
 
+
       // Custom Icon \\
       $scope.markersOptions = {
         options: {draggable: false,
