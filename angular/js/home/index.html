@@ -1,8 +1,6 @@
 
 
-<div class="indexHeader">
-
-	<div id="epic-carousel" class="carousel slide" data-ride="carousel">
+	<div id="epic-carousel" class="carousel slide" data-ride="carousel" data-interval="7000">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#epic-carousel" data-slide-to="0" class="active"></li>
@@ -12,26 +10,26 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
+        <div class="item">
+          <img id ="beach" src="beach.jpg" alt="...">
+          <div class="carousel-caption">
+          	<h3> Be intrepid. </h3>
+						<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Tell your story.</button>
+						<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Go back. </button>
+          </div>
+        </div>
         <div class="item active">
-          <img src="http://lallytours.com/wp-content/uploads/2015/01/featured-cliffs-of-moher.jpg" alt="...">
+          <img id= "ireland" src="ireland.jpg" alt="...">
           <div class="carousel-caption">
-          	<h3>Share your story. </h3>
+          	<h3>Be curious.</h3>
 						<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Tell your story.</button>
 						<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Go back. </button>
           </div>
         </div>
         <div class="item">
-          <img src="http://www.airport-orly.com/images/paris-tour-eiffel-at-night.jpg" alt="...">
+          <img id= "cliffs" src="IMG_2209.jpg" alt="...">
           <div class="carousel-caption">
-          	<h3>Impress your friends.</h3>
-						<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Tell your story.</button>
-						<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Go back. </button>
-          </div>
-        </div>
-        <div class="item">
-          <img src="IMG_2209.jpg" alt="...">
-          <div class="carousel-caption">
-          	<h3> Be intrepid.</h3>
+          	<h3> Be epic.</h3>
 						<button type="button" data-ng-if="!HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Tell your story.</button>
 						<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Go back. </button>
           </div>

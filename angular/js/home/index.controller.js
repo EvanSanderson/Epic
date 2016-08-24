@@ -11,7 +11,7 @@
         HomeIndexControllerFunction
     ])
 
-    function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
+function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
       // Epic data \\
       $scope.epics = HomeFactory.query();
 

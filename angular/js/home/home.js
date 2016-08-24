@@ -5,6 +5,7 @@
 	.module("home", [
 		"uiGmapgoogle-maps",
 		"ngResource",
-		"ngAnimate"
+		"ngAnimate",
+		"ui.bootstrap"
 	]);
 }());

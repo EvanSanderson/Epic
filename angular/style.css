@@ -113,4 +113,37 @@ button:hover {
   background-repeat: no-repeat;
   background-size: cover; }
 
+#slides_control > div {
+  height: 200px; }
+
+img {
+  margin: auto;
+  width: 400px; }
+
+#slides_control {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 20px;
+  margin-left: -200px; }
+
+.carousel {
+  width: 100%;
+  margin: 0 auto; }
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+  width: 100%; }
+
+#beach {
+  height: 700px;
+  width: 100%; }
+
+#cliffs {
+  height: 700px;
+  width: 100%; }
+
+#ireland {
+  height: 700px;
+  width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
