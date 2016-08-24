@@ -39,14 +39,17 @@
         this.toggleNew()
           this.epic.lat = latitude[0]
           this.epic.long = longitude[0]
-          var item = this.epic
+
+        var item = this.epic
           this.epic.$save().then(function(){
             var newEpic = document.createElement('a');
             newEpic.setAttribute('href', '/#/epics/' + item.id);
             angular.element(newEpic).append(item.title);
             angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
-          })
+          });
+        $scope.map.center = { latitude: latitude[0], longitude: longitude[0]
+        };
       }
 
       // toggles hide function on buttons
@@ -56,6 +59,8 @@
 
       // Google Maps Data \\
       // How the map appears on rendering \\
+      var latitude = [];
+      var longitude = [];
       $scope.map = { center: {
         latitude: 30,
         longitude: -30},
@@ -64,7 +69,6 @@
         model: {}
       }
       // Map Styles \\
-      console.log(stylesArray);
       $scope.options = {
         styles: stylesArray,
         options: {
@@ -87,12 +91,14 @@
               longitude: val.long
             }
           })
+          $scope.map.center.latitude = val.lat;
+          $scope.map.center.longitude = val.long;
+          $scope.map.refresh = true;
         })
       })
 
       // Marker events \\
       $scope.markerClick = function(marker){
-        console.log(marker);
         var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
           var infowindow = new google.maps.InfoWindow({
             content: contentString,
@@ -112,22 +118,20 @@
           animation: window.google.maps.Animation.DROP
         }
       }
-      var latitude = [];
-      var longitude = [];
       $scope.searchbox = {
         template:'searchbox.tpl.html',
         events: {
           places_changed: function (searchBox) {
-              //           console.log(searchBox)
-              //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-              //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-              latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
+            //           console.log(searchBox)
+            //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+            //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
             longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
 
           }
         }
       }
-
+      console.log("map lat", $scope.map.center.latitude);
 
     }
 
