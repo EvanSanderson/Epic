@@ -1,4 +1,3 @@
-/*VAN START*/
 body {
   font-family: "Lato", sans-serif;
 
@@ -41,21 +40,27 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  height: 100vh;
 }
-/*VAN END*/
 
 .angular-google-map-container { 
 	height: 80vh; 
 }
 
+.window_header {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #48b5e9;
+  color: white;
+  margin: 1px;
+  border-radius: 2px 2px 0 0;
+}
+
 #map {
   height: 100vh;
 }
-
-#main {
-  height: 100vh;
-}
-
 
 #marker {
   height: 5px,
@@ -65,12 +70,24 @@ body {
   margin: 0 auto 5px auto;
   text-align: center;
 }
-.window_info{
-  color: violet;
-  text-align: center;
+.window_wrapper {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.window_img {
+  max-width: 200px;
+  max-height: 200px;
+}
+.window_link{
+  margin: 0 auto;
+  color: black;
+}
+.window_wrapper:hover{
+  text-decoration: none;
+  border: 3px solid #48b5e9;
+  color: black;
 }
 
-.window_info:hover{
-  text-decoration: none;
-  color: blue;
-}

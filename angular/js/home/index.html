@@ -9,20 +9,21 @@
    <input placeholder = "Title" data-ng-model="HomeIndexCtrl.epic.title" />
    <input placeholder = "Summary" data-ng-model="HomeIndexCtrl.epic.summary" />
    <input placeholder = "Image URL" data-ng-model="HomeIndexCtrl.epic.img_url" />
-<button type="button" data-ng-if ="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.create()">Create</button>
+<button type="button" data-ng-if ="HomeIndexCtrl.showNew"
+  data-ng-click="HomeIndexCtrl.create()">Create</button>
 </div>
 
-<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom' id="map" events="options.events" >
+<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
+  id="map" events="options.events">
 	<script id="searchbox.tpl.html" type="text/ng-template">
 		<form>
-			<input placeholder="Search..." type="text" ng-model="text" name="text" />
+			<input placeholder="Epic Location..." type="text" ng-model="text" name="text" /
+      style="width:400px">
 		</form>
 	</script>
 	<ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
-	<ui-gmap-markers models="markers" coords="'coords'" options="markersOptions.options" events="map.markerHover" >
-    <ui-gmap-windows show="'model.show'" id="window">
-      <h3 ><a href="/#/epics/{{id}}" class="window_info" data-ng-non-bindable>{{title}}</a></h3>
-    </ui-gmap-windows>
+	<ui-gmap-markers models="markers" coords="'coords'"
+    options="markersOptions.options" click="markerClick">
   </ui-gmap-markers>
 </ui-gmap-google-map>
 </div>
