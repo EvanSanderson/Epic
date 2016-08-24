@@ -10,8 +10,6 @@
     ])
     .config([
         "$stateProvider",
-        "uiGmapGoogleMapApiProvider",
-        GoogleMap,
         RouterFunction
     ])
     .controller('MainController', function(HomeFactory, $scope) {
@@ -28,14 +26,6 @@
         }
       }
     })
-
-    function GoogleMap(uiGmapGoogleMapApiProvider) {
-      uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyDNzHXnxO7i2lHvIufJw9jqta_MWpHyjTg',
-        v: '3.24',
-        libraries: 'places'
-      })
-    }
 
   	function RouterFunction($stateProvider) {
   		$stateProvider
