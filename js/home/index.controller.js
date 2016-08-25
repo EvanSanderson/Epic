@@ -115,7 +115,7 @@
         template:'searchbox.tpl.html',
         events: {
           places_changed: function (searchBox) {
-              //           console.log(searchBox)
+            console.log(searchBox)
               //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
               //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
             latitude.unshift(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
