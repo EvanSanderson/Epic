@@ -14,6 +14,7 @@
     ])
     .controller('MainController', function(HomeFactory, $scope, $state) {
         $scope.$state = $state;
+        console.log($scope.$state)
     	  $scope.epics = HomeFactory.query();
     	  $scope.open = function() {
         this.epicList = !this.epicList;
