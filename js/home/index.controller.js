@@ -25,7 +25,7 @@
           this.epic.long = longitude[0]
           var item = this.epic
 
-          
+
           this.epic.$save().then(function(){
             var newEpic = document.createElement('a');
             newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
@@ -117,6 +117,7 @@
               //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
               latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
             longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+            $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
 
           }
         }
