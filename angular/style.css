@@ -17,6 +17,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  box-sizing: border-box;
 
 }
 
@@ -98,15 +99,22 @@ body {
 
 .story_show {
   text-align: center;
-  background: #282E34;
-  color: white;
+  background: rgba(40, 46, 52, .8);;
+  color:white;
+  cursor: pointer;
   margin-bottom: 5%;
   padding: 2%;
   margin-top: 5%;
-  border-radius: 30px;
+  border-radius: 20px;
+  border: 2px solid #282E34;
   width: 50vw;
   margin-left: 20%;
 
+}
+
+.story_show:hover{
+  color:white;
+  background: rgb(40, 46, 52);
 }
 
   .story_show img {

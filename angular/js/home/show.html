@@ -47,7 +47,7 @@
       <h3> {{story.date}} | <a href={{story.map_loc}}> Map Location </a></h3>
       <p> {{story.summary}} </p>
     </div>
-<hr>
+<br>
 <!--  buttons to hide and unhide update function on stories -->
   <button type="button" data-ng-if="!story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Update</button>
   <button type="button" data-ng-if="story.showEdit" data-ng-click="HomeShowCtrl.toggleEdit(story)">Cancel</button>
