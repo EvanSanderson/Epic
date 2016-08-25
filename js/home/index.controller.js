@@ -24,6 +24,8 @@
           this.epic.lat = latitude[0]
           this.epic.long = longitude[0]
           var item = this.epic
+
+          
           this.epic.$save().then(function(){
             var newEpic = document.createElement('a');
             newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
@@ -41,9 +43,11 @@
 
       // Google Maps Data \\
       // How the map appears on rendering \\
-      $scope.map = { center: {
-        latitude: 30,
-        longitude: -30},
+      $scope.map = { 
+        center: {
+          latitude: 30,
+          longitude: -30
+        },
         zoom: 3,
         show: false,
         model: {}
@@ -52,9 +56,14 @@
       $scope.options = {
         options: {
           draggable: true,
-          minZoom: 3
-        }
+          minZoom: 3,
+        },
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.HYBRID]
+        },
+        mapTypeId: google.maps.MapTypeId.HYBRID
       }
+
 
       // Marker Locations \\
       $scope.markers = [];
