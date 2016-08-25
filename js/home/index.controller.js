@@ -14,8 +14,33 @@
 
 
     function HomeIndexControllerFunction(HomeFactory, $scope, GoogleMapApi, $state) {
+
+      var latitude = [];
+      var longitude = [];
       // Epic data
       $scope.epics = HomeFactory.query();
+
+      // create function
+      this.epic = new HomeFactory();
+      this.create = function($scope){
+        this.toggleNew()
+          var item = this.epic
+
+
+          this.epic.$save().then(function(){
+            var newEpic = document.createElement('a');
+            newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
+            angular.element(newEpic).append(item.title);
+            angular.element(document.getElementById("epic-list")).append(newEpic);
+            $state.transitionTo('epicIndex', null, {reload: true});
+          });
+          // $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
+      }
+
+      // toggles hide function on buttons
+      this.toggleNew = function(){
+        this.showNew = !this.showNew;
+      }
 
       // Google Maps Data \\
       // How the map appears on rendering \\
@@ -28,30 +53,6 @@
         show: false,
         model: {}
       }
-
-      // create function
-      this.epic = new HomeFactory();
-      this.create = function($scope){
-        this.toggleNew()
-          console.log(latitude[0] + " " + longitude[0])
-          var item = this.epic
-
-
-          this.epic.$save().then(function(){
-            var newEpic = document.createElement('a');
-            newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
-            angular.element(newEpic).append(item.title);
-            angular.element(document.getElementById("epic-list")).append(newEpic);
-            $state.transitionTo('epicIndex', null, {reload: true});
-          });
-          $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
-      }
-
-      // toggles hide function on buttons
-      this.toggleNew = function(){
-        this.showNew = !this.showNew;
-      }
-
       // Map Styles \\
       $scope.options = {
         options: {
@@ -106,8 +107,6 @@
           animation: window.google.maps.Animation.DROP
         }
       }
-      var latitude = [];
-      var longitude = [];
       $scope.searchbox = {
         template:'searchbox.tpl.html',
         events: {
