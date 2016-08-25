@@ -71,70 +71,73 @@
       }
       // Map Styles \\
       $scope.options = {
-        styles: stylesArray,
         options: {
           draggable: true,
           minZoom: 3,
-        }
+        },
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.HYBRID]
+        },
+        mapTypeId: google.maps.MapTypeId.HYBRID
       }
 
-      // Marker Locations \\
-      $scope.markers = [];
-      $scope.marker = HomeFactory.query().$promise.then(function(val){
-        angular.forEach(val, function(val, key) {
-          $scope.markers.push({
-            id: val.id,
-            title: val.title,
-            sum: val.summary,
-            img: val.img_url,
-            coords: {
-              latitude: val.lat,
-              longitude: val.long
-            }
-          })
+        // Marker Locations \\
+        $scope.markers = [];
+        $scope.marker = HomeFactory.query().$promise.then(function(val){
+          angular.forEach(val, function(val, key) {
+            $scope.markers.push({
+              id: val.id,
+              title: val.title,
+              sum: val.summary,
+              img: val.img_url,
+              coords: {
+                latitude: val.lat,
+                longitude: val.long
+              }
+            })
 
-          $scope.map.center.latitude = val.lat;
-          $scope.map.center.longitude = val.long;
-          $scope.map.refresh = true;
+            $scope.map.center.latitude = val.lat;
+            $scope.map.center.longitude = val.long;
+            $scope.map.refresh = true;
+          })
         })
-      })
 
-      // Marker events \\
-      $scope.markerClick = function(marker){
-        var contentString = '<br><a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            scrollwheel: false,
-          })
-        infowindow.open(map, marker);
-        $scope.map.center = { latitude: marker.model.coords.latitude, longitude: marker.model.coords.longitude, zoom: 5 };
-      };
+        // Marker events \\
+        $scope.markerClick = function(marker){
+          var contentString = '<br><a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString,
+              scrollwheel: false,
+            })
+          infowindow.open(map, marker);
+          $scope.map.center = { latitude: marker.model.coords.latitude, longitude: marker.model.coords.longitude, zoom: 5 };
+        };
 
 
-      // Custom Icon \\
-      $scope.markersOptions = {
-        options: {draggable: false,
-          icon:{
-            url: 'shadowPin.png',
-            scaledSize: {width: 40, height: 40}
-          },
-          animation: window.google.maps.Animation.DROP
-        }
-      }
-      $scope.searchbox = {
-        template:'searchbox.tpl.html',
-        events: {
-          places_changed: function (searchBox) {
-            //           console.log(searchBox)
-            //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
-            //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
-            longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-
+        // Custom Icon \\
+        $scope.markersOptions = {
+          options: {draggable: false,
+            icon:{
+              url: 'shadowPin.png',
+              scaledSize: {width: 40, height: 40}
+            },
+            animation: window.google.maps.Animation.DROP
           }
         }
-      }
-      
-    }
+        $scope.searchbox = {
+          template:'searchbox.tpl.html',
+          events: {
+            places_changed: function (searchBox) {
+              //           console.log(searchBox)
+              //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
+              //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
+              latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
+              longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
 
-}())
+            }
+          }
+        }
+
+      }
+
+    }())
