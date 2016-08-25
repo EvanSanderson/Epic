@@ -40,7 +40,7 @@
         this.toggleEdit(epic)
   			$scope.epic = epic;
   			$scope.epic.$delete({id: epic.id}).then(function(){
-          $state.transitionTo('epicIndex', {reload: true});
+          $state.transitionTo('epicIndex', {}, {reload: true});
   		})
 }
       this.toggleEdit = function(epic){
