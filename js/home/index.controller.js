@@ -34,7 +34,6 @@
             angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
           });
-          // $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
       }
 
       // toggles hide function on buttons
@@ -116,7 +115,7 @@
               //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
             latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
             longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-            // $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
+            $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
 
           }
         }
