@@ -125,7 +125,8 @@ body {
 
 .storyHeader {
   text-align: center;
-  font-size: 2em; }
+  font-size: 2em;
+  margin-top: 5%; }
 
 button {
   background-color: #5D4A66;
