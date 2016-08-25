@@ -14,8 +14,6 @@
     ])
     .controller('MainController', function(HomeFactory, $scope, $state) {
         $scope.$state = $state;
-        console.log(fqn($scope.$state))
-        console.log($scope.$state.includes('epicIndex'))
     	  $scope.epics = HomeFactory.query();
     	  $scope.open = function() {
         this.epicList = !this.epicList;
