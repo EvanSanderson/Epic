@@ -48,6 +48,10 @@
 			controller: "HomeShowController",
 			controllerAs: "HomeShowCtrl"
 		})
+    .state("contact", {
+      url: "/contact",
+      templateUrl: "contact.html"
+    })
     .state("otherwise", {
       url : "*path",
       templateUrl: "js/home/index.html",
