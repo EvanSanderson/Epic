@@ -24,7 +24,7 @@
 <p> Your stories will then be automatically added to your Epic, and listed in chronological order. </p>
     <form>
       <input placeholder = "Title" data-ng-model="HomeShowCtrl.story.title" />
-      <input placeholder = "Map Location" data-ng-model="HomeShowCtrl.story.map_loc" />
+      <input placeholder = "Link to Location" data-ng-model="HomeShowCtrl.story.map_loc" />
       <input placeholder = "Media URL" data-ng-model="HomeShowCtrl.story.media_url" />
       <input placeholder = "Summary" data-ng-model="HomeShowCtrl.story.summary" />
       <input type = "date" data-ng-model="HomeShowCtrl.story.date" />
@@ -36,15 +36,15 @@
 
 <div class="bg1"> </div>
 <div class="container">
-<div class="row">
+<div class="row stories">
     <div class="col-md-12 story_show" data-ng-repeat="story in stories | orderBy: 'date'" data-ng-click="HomeShowCtrl.toggleStory(story)">
     <!-- story information listed below -->
     <div class="storyOne" data-ng-if="!story.showStory">
-      <h1> {{story.title}} </h1>
+      <h1 style="margin-bottom:5%"> {{story.title}} </h1>
       <img class = "storyImage" src={{story.media_url}}>
     </div>
     <div class="storyTwo" data-ng-if="story.showStory">
-      <h3> {{story.date}} | <a href={{story.map_loc}}> Map Location </a></h3>
+      <h3> {{story.date}} | <a href="{{story.map_loc}}"> Link To Location </a></h3>
       <p> {{story.summary}} </p>
     </div>
 <br>
@@ -55,7 +55,6 @@
   <div class="edit-form" data-ng-show="story.showEdit" id="usrform">
         <form>
           <input placeholder="Title" data-ng-model="story.title">
-          <input placeholder="Map Location" data-ng-model="story.map_loc">
           <input placeholder="Media URL" data-ng-model="story.media_url">
           <input placeholder="Summary" data-ng-model="story.summary">
           <input placeholder="Date" data-ng-model="story.date">

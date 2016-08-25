@@ -79,7 +79,7 @@ body {
   text-align: center;
   color: white;
   margin: 1px;
-  border-radius: 2px 2px 0 0;
+  border-radius: 10%;
 }
 
 #map {
@@ -99,7 +99,7 @@ body {
 
 .story_show {
   text-align: center;
-  background: rgba(40, 46, 52, .8);;
+  background: rgb(40, 46, 52);
   color:white;
   cursor: pointer;
   margin-bottom: 5%;
@@ -114,7 +114,7 @@ body {
 
 .story_show:hover{
   color:white;
-  background: rgb(40, 46, 52);
+  background: rgba(40, 46, 52, .8);
 }
 
   .story_show img {
@@ -153,11 +153,11 @@ button:hover {
 
 .create-form {
   text-align: center;
-  padding: 2%;
-  transition: all linear 0.5s;
   height: 50%;
   color: #282e34;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 5%;
+ }
 
 .indexHeader {
   text-align: center;

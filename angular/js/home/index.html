@@ -46,7 +46,7 @@
 
 
 <div class="create-form" data-ng-show="HomeIndexCtrl.showNew">
-	<h1> Use this form to add an Epic. </h1>
+	<h1 style="font-weight:bold; font-size:2em"> Use this form to add an <span style="color:#5D4A66"> Epic. </span> </h1>
 <form>
    <input placeholder = "Name" data-ng-model="HomeIndexCtrl.epic.name" />
    <input placeholder = "Title" data-ng-model="HomeIndexCtrl.epic.title" />
@@ -57,9 +57,7 @@
 </div>
 
 <div class="create-form" data-ng-show="!HomeIndexCtrl.showNew">
-	<h3> Welcome to Epic. Add an Epic by clicking the "Tell Your Story" button, then create stories within that Epic. </h3>
-	<hr>
-	<h3> Share your adventures with the world. </h3>
+	<h3 style="font-weight:bold; font-size:2em"> Share your <span style="color:#5D4A66">adventures </span>with the world. </h3>
 </div>
 
 <ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
