@@ -12,7 +12,8 @@
         "$stateProvider",
         RouterFunction
     ])
-    .controller('MainController', function(HomeFactory, $scope) {
+    .controller('MainController', function(HomeFactory, $scope, $state) {
+        $scope.$state = $state;
     	  $scope.epics = HomeFactory.query();
     	  $scope.open = function() {
         this.epicList = !this.epicList;

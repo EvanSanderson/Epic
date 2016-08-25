@@ -30,7 +30,8 @@
             angular.element(newEpic).append(item.title);
             angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
-          })
+          });
+        $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
       }
 
       // toggles hide function on buttons
@@ -48,12 +49,10 @@
         model: {}
       }
       // Map Styles \\
-      console.log(stylesArray);
       $scope.options = {
-        styles: stylesArray,
         options: {
           draggable: true,
-          minZoom: 3,
+          minZoom: 3
         }
       }
 
@@ -85,6 +84,7 @@
 
           })
         infowindow.open(map, marker);
+        $scope.map.center = { latitude: marker.model.coords.latitude, longitude: marker.model.coords.longitude, zoom: 5 };
       };
 
       // Custom Icon \\
