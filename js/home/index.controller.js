@@ -21,19 +21,18 @@
       this.epic = new HomeFactory();
       this.create = function($scope){
         this.toggleNew()
-          this.epic.lat = latitude[0]
-          this.epic.long = longitude[0]
+          console.log(latitude[0] + " " + longitude[0])
           var item = this.epic
 
 
           this.epic.$save().then(function(){
-            // var newEpic = document.createElement('a');
-            // newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
-            // angular.element(newEpic).append(item.title);
-            // angular.element(document.getElementById("epic-list")).append(newEpic);
+            var newEpic = document.createElement('a');
+            newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
+            angular.element(newEpic).append(item.title);
+            angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
-            $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
           });
+          $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
       }
 
       // toggles hide function on buttons
@@ -115,9 +114,9 @@
               //           console.log(searchBox)
               //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
               //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-            latitude.unshift(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
-            longitude.unshift(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-            $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
+            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
+            longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
+            // $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
 
           }
         }
