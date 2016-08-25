@@ -17,6 +17,18 @@
       // Epic data
       $scope.epics = HomeFactory.query();
 
+      // Google Maps Data \\
+      // How the map appears on rendering \\
+      $scope.map = { 
+        center: {
+          latitude: 30,
+          longitude: -30
+        },
+        zoom: 3,
+        show: false,
+        model: {}
+      }
+
       // create function
       this.epic = new HomeFactory();
       this.create = function($scope){
@@ -40,17 +52,6 @@
         this.showNew = !this.showNew;
       }
 
-      // Google Maps Data \\
-      // How the map appears on rendering \\
-      $scope.map = { 
-        center: {
-          latitude: 30,
-          longitude: -30
-        },
-        zoom: 3,
-        show: false,
-        model: {}
-      }
       // Map Styles \\
       $scope.options = {
         options: {
