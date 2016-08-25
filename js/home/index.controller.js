@@ -118,9 +118,8 @@
             console.log(searchBox)
               //           console.log(searchBox.gm_accessors_.places.Qc.formattedPrediction)
               //           console.log(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].url)
-            latitude.unshift(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
-            longitude.unshift(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f)
-            $scope.map.center = { latitude: latitude[0], longitude: longitude[0], zoom: 5 };
+            latitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.f.b);
+            longitude.push(searchBox.gm_accessors_.places.Qc.searchBoxPlaces[0].geometry.viewport.b.f);
 
           }
         }
