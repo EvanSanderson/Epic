@@ -27,7 +27,6 @@
 	<script type="text/javascript" src="js/home/index.controller.js"></script>
 	<script type="text/javascript" src="js/home/home.factory.js"></script>
 	<script type="text/javascript" src="js/home/show.controller.js"></script>
-	<script type="text/javascript" src="js/dependencies/map_style.js"></script>
 
 
 	<!-- Bootstrap & CSS -->
@@ -44,12 +43,14 @@
       </div>
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <ul class="nav navbar-nav">
+
+    <nav class="navbar navbar-default navbar-static-top page-navigation">
+      <ul class="nav navbar-nav page-navigation">
         <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
         <li data-ng-if="!HomeIndexCtrl.epicList" ng-click="open()"><a>Epics</a></li>
+        <li><a data-ng-show="$state.includes('epicIndex')" data-ng-href="/#map_section" target="_self"><span class="glyphicon glyphicon-map-marker"></span></a></li>
 				<li><a href="/#/contact">Contact</a></li>
-      </ul>
+			</ul>
     </nav>
 
     <div id="main">

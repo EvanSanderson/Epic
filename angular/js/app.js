@@ -19,20 +19,22 @@
         libraries: 'places'
       })
     })
-    .controller('MainController', function(HomeFactory, $scope) {
-    	  $scope.epics = HomeFactory.query();
-    	  $scope.open = function() {
-        this.epicList = !this.epicList;
-        if (this.epicList == true) {
-          document.getElementById("epic-list").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-        }
-        else {
-          document.getElementById("epic-list").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-        }
+  .controller('MainController', function(HomeFactory, $scope, $state) {
+    $scope.$state = $state;
+    $scope.epics = HomeFactory.query();
+    $scope.open = function() {
+      this.epicList = !this.epicList;
+      if (this.epicList == true) {
+        document.getElementById("epic-list").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
       }
-    })
+      else {
+        document.getElementById("epic-list").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+    }
+  })
+
 
   	function RouterFunction($stateProvider) {
   		$stateProvider
@@ -59,4 +61,5 @@
       controllerAs: "HomeIndexCtrl"
     });
   	}
+
 }())

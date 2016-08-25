@@ -1,11 +1,11 @@
 
-	<div id="epic-carousel" class="carousel slide" data-ride="carousel" data-interval="7000">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#epic-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#epic-carousel" data-slide-to="1"></li>
-        <li data-target="#epic-carousel" data-slide-to="2"></li>
-      </ol>
+<div id="epic-carousel" class="carousel slide" data-ride="carousel" data-interval="7000">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#epic-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#epic-carousel" data-slide-to="1"></li>
+    <li data-target="#epic-carousel" data-slide-to="2"></li>
+  </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
@@ -33,7 +33,6 @@
 						<button type="button" data-ng-if="HomeIndexCtrl.showNew" data-ng-click="HomeIndexCtrl.toggleNew()">Go back. </button>
           </div>
         </div>
-      </div>
 
       <!-- Controls -->
       <a class="left carousel-control" href="#epic-carousel" role="button" data-slide="prev" ng-non-bindable>
@@ -60,16 +59,18 @@
 	<h3 style="font-weight:bold; font-size:2em"> Share your <span style="color:#5D4A66">adventures </span>with the world. </h3>
 </div>
 
-<ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
-  id="map" events="options.events">
-	<script id="searchbox.tpl.html" type="text/ng-template">
-		<form>
-			<input placeholder="Epic Location..." type="text" ng-model="text" name="text" /
+<div name="map_section" id="map_section">
+  <ui-gmap-google-map options="options" center='map.center' zoom='map.zoom'
+                      id="map" events="options.events" >
+                      <script id="searchbox.tpl.html" type="text/ng-template">
+<form>
+      <input placeholder="Epic Location..." type="text" ng-model="text" name="text" /
       style="width:400px">
-		</form>
-	</script>
-	<ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
-	<ui-gmap-markers models="markers" coords="'coords'"
-    options="markersOptions.options" click="markerClick">
-  </ui-gmap-markers>
-</ui-gmap-google-map>
+    </form>
+                      </script>
+                      <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+                      <ui-gmap-markers models="markers" coords="'coords'"
+                                                        options="markersOptions.options" click="markerClick">
+                      </ui-gmap-markers>
+  </ui-gmap-google-map>
+</div>

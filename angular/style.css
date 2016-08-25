@@ -60,6 +60,7 @@ body {
   padding: 30px;
   height: 100vh; }
 
+
 .angular-google-map-container {
   height: 75vh;
   border: 5px solid #5D4A66; }
@@ -222,7 +223,7 @@ button:hover {
 
 /*# sourceMappingURL=style.css.map */
 
-}
+
 .window_wrapper {
   display: flex;
   width: 400px;
@@ -286,4 +287,9 @@ button:hover {
     -moz-transform: scale(1.2);
     transition: all 200ms ease-in;
     transform: scale(1.2);
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
 }
