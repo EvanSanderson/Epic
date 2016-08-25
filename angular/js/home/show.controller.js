@@ -80,6 +80,9 @@
         story.showEdit = !story.showEdit;
       }
 
+      this.toggleStory = function(story){
+        story.showStory = !story.showStory;
+      }
 }
 
 })()
