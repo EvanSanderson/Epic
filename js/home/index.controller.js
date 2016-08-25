@@ -26,7 +26,7 @@
           var item = this.epic
           this.epic.$save().then(function(){
             var newEpic = document.createElement('a');
-            newEpic.setAttribute('href', '/#/epics/' + item.id);
+            newEpic.setAttribute('href', '/Epic/#/epic/' + item.id);
             angular.element(newEpic).append(item.title);
             angular.element(document.getElementById("epic-list")).append(newEpic);
             $state.transitionTo('epicIndex', null, {reload: true});
@@ -76,8 +76,7 @@
 
       // Marker events \\
       $scope.markerClick = function(marker){
-        console.log(marker);
-        var contentString = '<a class="window_link window_wrapper" href=#/epics/'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
+        var contentString = '<a class="window_link window_wrapper" href="/Epic/#/epic/"'+marker.model.id+'><h3 class="window_header">'+marker.model.title+'</h3>' + '<img class="window_img" src='+marker.model.img+'>' + '<p>'+marker.model.sum+'</p></a>'
           var infowindow = new google.maps.InfoWindow({
             content: contentString,
             scrollwheel: false

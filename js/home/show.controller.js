@@ -22,8 +22,6 @@
       // listing the stories associated with the epic you are on
       StoryFactory.query().$promise.then(function(results) {
           angular.forEach(results, function(result) {
-            console.log(result.epic_id)
-            console.log($stateParams.id)
             if(result.epic_id == $stateParams.id)
               $scope.stories.push(result)
           })
