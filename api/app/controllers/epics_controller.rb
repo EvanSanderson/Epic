@@ -4,6 +4,7 @@ class EpicsController < ApplicationController
   # GET /epics
   def index
     @epics = Epic.all
+    # dope but you're not using these lines, so get rid of it!
     @epics_with_stories = @epics.map do |epic|
       {
         epic: epic,
